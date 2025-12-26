@@ -142,3 +142,6 @@ Futari Logは、
 **自身の実体験から生まれた課題を、Webアプリとしてどう解決できるか**を追求した卒業制作です。
 
 技術だけでなく、UXや心理的負担への配慮を大切にしながら開発を進めます。
+
+## 画面遷移図
+https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=d0Lr8itl5FBzsJac-0
