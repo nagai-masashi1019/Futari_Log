@@ -136,6 +136,13 @@ Futari Logでは、まず「記録する・振り返る」という
 よりパーソナライズされた行動提案やサポート機能の追加を検討しています。
 
 ---
+## 画面遷移図
+https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=d0Lr8itl5FBzsJac-0
+
+---
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/1b520101e2d045b2b00f6f6215916554.png)](https://gyazo.com/1b520101e2d045b2b00f6f6215916554)
 
 ## まとめ
 Futari Logは、  
