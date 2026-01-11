@@ -1,0 +1,42 @@
+<header class="w-full bg-white border-b">
+  <div class="flex items-center justify-between px-4 md:px-8 py-3">
+
+    <!-- ロゴ（左端・サイズ控えめ） -->
+    <%= link_to root_path do %>
+      <%= image_tag "5442aa2a-9377-4f2d-ba76-87585137722f.png",
+            class: "h-9 md:h-11" %>
+    <% end %>
+
+    <!-- PCナビ（右端） -->
+    <nav class="hidden md:flex items-center gap-6">
+      <%= link_to "ログイン",
+            new_user_session_path,
+            class: "text-sm text-gray-700 hover:text-gray-900" %>
+
+      <%= link_to "新規登録",
+            new_user_registration_path,
+            class: "px-4 py-2 rounded-md bg-blue-500 text-white text-sm hover:bg-blue-600" %>
+    </nav>
+
+    <!-- モバイルメニュー -->
+    <button id="mobile-menu-button" class="md:hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- モバイルナビ -->
+  <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+    <div class="flex flex-col items-center py-4 gap-4">
+      <%= link_to "ログイン",
+            new_user_session_path,
+            class: "text-gray-700" %>
+
+      <%= link_to "新規登録",
+            new_user_registration_path,
+            class: "px-6 py-2 rounded-md bg-blue-500 text-white" %>
+    </div>
+  </div>
+</header>

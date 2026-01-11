@@ -1,0 +1,36 @@
+<header class="w-full bg-white border-b">
+  <div class="flex items-center justify-between px-4 md:px-8 py-3">
+
+    <!-- ロゴ（左端・控えめ） -->
+    <%= link_to root_path do %>
+      <%= image_tag "5442aa2a-9377-4f2d-ba76-87585137722f.png",
+            class: "h-9 md:h-11" %>
+    <% end %>
+
+    <!-- PCナビ（右端） -->
+    <nav class="hidden md:flex items-center gap-6">
+      <%= button_to "ログアウト",
+            destroy_user_session_path,
+            method: :delete,
+            class: "text-sm text-gray-700 hover:text-gray-900" %>
+    </nav>
+
+    <!-- モバイルメニュー -->
+    <button id="mobile-menu-button" class="md:hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- モバイルナビ -->
+  <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+    <div class="flex flex-col items-center py-4 gap-4">
+      <%= button_to "ログアウト",
+            destroy_user_session_path,
+            method: :delete,
+            class: "text-gray-700" %>
+    </div>
+  </div>
+</header>
