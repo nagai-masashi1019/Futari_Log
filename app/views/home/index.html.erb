@@ -1,0 +1,119 @@
+<% if user_signed_in? %>
+  <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
+
+    <!-- ===== サイドバー（PC） ===== -->
+    <aside class="hidden md:block w-64 bg-white shrink-0">
+      <nav class="flex flex-col h-full">
+        <div class="px-6 py-4 bg-cyan-100 font-semibold">
+          <%= current_user.nickname.presence || "自分のニックネーム" %>
+        </div>
+
+        <%= link_to "ごきげん記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+        <%= link_to "ありがとう記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+        <%= link_to "設定", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+      </nav>
+    </aside>
+
+    <!-- ===== メイン＋スマホ用 ===== -->
+    <div id="content-wrapper"
+         class="flex-1 transition-transform duration-300">
+
+      <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
+
+        <!-- ☰（スマホのみ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2
+                   border border-gray-300 rounded-lg
+                   px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span id="sidebar-icon" class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <h1 class="text-xl md:text-2xl font-bold mb-6">
+          こんにちは、<%= current_user.nickname.presence || "◯◯" %>さん
+        </h1>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 mb-10">
+          <h2 class="text-lg font-bold mb-4">今日のごきげんは？</h2>
+          <div class="flex justify-between text-4xl md:text-5xl">
+            😊 😐 😶 😟 😢
+          </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-bold mb-4">今週のごきげん傾向</h3>
+            <div class="flex items-center gap-6">
+              <span class="text-5xl">😊</span>
+              <span class="text-5xl font-bold">65%</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-bold mb-4">今週もらったありがとう</h3>
+            <div class="flex items-center gap-4">
+              <span class="text-4xl">💌</span>
+              <span class="text-4xl font-bold">3件</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===== スマホ用サイドバー ===== -->
+    <aside id="mobile-sidebar"
+      class="fixed left-0 top-[61px] h-[calc(100vh-61px)]
+             w-64 bg-white shadow-xl
+             transform -translate-x-full
+             transition-transform duration-300
+             z-40 md:hidden">
+
+      <nav class="flex flex-col h-full">
+        <div class="px-6 py-4 bg-cyan-100 font-semibold">
+          <%= current_user.nickname.presence || "自分のニックネーム" %>
+        </div>
+
+        <%= link_to "ごきげん記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+        <%= link_to "ありがとう記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+        <%= link_to "設定", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+      </nav>
+    </aside>
+
+  </div>
+
+<% else %>
+  <section class="bg-[#e9f7f7] min-h-[calc(100vh-80px)] flex flex-col items-center justify-center text-center px-4">
+
+    <!-- ロゴ（超大） -->
+    <div class="mb-6">
+      <%= image_tag "1212ddaa-3d48-40ff-9f34-95a07bfde494.png", class: "w-[85%] md:w-[75%] lg:w-[70%] mx-auto" %>
+    </div>
+
+    <!-- キャッチコピー -->
+    <p class="text-gray-600 mb-10">
+      長く一緒にいるふたりのための優しい感情ログ
+    </p>
+
+    <!-- はじめる -->
+    <div class="mb-10">
+      <%= link_to "はじめる",
+            new_user_registration_path,
+            class: "inline-block px-10 py-3 bg-white border border-gray-700 rounded-md text-gray-800 hover:bg-gray-100" %>
+    </div>
+
+    <!-- サービスの特徴 -->
+    <div class="bg-white rounded-lg shadow-sm p-6 w-full max-w-md">
+      <h2 class="font-semibold mb-3">
+        ▼ サービスの特徴
+      </h2>
+      <ul class="text-sm text-gray-600 space-y-2">
+        <li>・ワンタップでごきげん記録</li>
+        <li>・ありがとうを残せる</li>
+        <li>・相手を責めない設計</li>
+      </ul>
+    </div>
+
+  </section>
+<% end %>
