@@ -1,0 +1,6 @@
+class CoupleUser < ApplicationRecord
+  belongs_to :couple
+  belongs_to :user
+
+  validates :partner_nickname, presence: true
+end
