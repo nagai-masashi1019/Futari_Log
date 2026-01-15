@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :couple_users, dependent: :destroy
   has_many :couples, through: :couple_users
+  has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
 end

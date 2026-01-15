@@ -1,0 +1,32 @@
+<section class="bg-[#e9f7f7] min-h-[calc(100vh-80px)] flex items-center justify-center px-4">
+  <div class="w-full max-w-2xl bg-white rounded-2xl shadow-sm px-6 py-10 md:px-10">
+
+    <!-- タイトル -->
+    <h1 class="text-2xl md:text-3xl font-bold text-center mb-6">
+      <%= t("couples.onboarding.title") %>
+    </h1>
+
+    <!-- 説明 -->
+    <p class="text-center text-gray-700 mb-10">
+      <%= t("couples.onboarding.description") %>
+    </p>
+
+    <!-- 選択ボタン -->
+    <div class="flex flex-col md:flex-row gap-6 justify-center">
+
+      <!-- 招待コード発行 -->
+      <%= link_to new_invitation_path,
+            class: "w-full md:w-60 text-center px-6 py-4 rounded-xl border border-gray-400 bg-[#e9f7f7] text-gray-800 font-medium hover:bg-[#dff1f1] transition" do %>
+        <%= t("couples.onboarding.issue") %>
+      <% end %>
+
+      <!-- 招待コード入力 -->
+      <%= link_to "#",
+            class: "w-full md:w-60 text-center px-6 py-4 rounded-xl border border-gray-400 bg-[#e9f7f7] text-gray-800 font-medium hover:bg-[#dff1f1] transition" do %>
+        <%= t("couples.onboarding.enter") %>
+      <% end %>
+
+    </div>
+
+  </div>
+</section>

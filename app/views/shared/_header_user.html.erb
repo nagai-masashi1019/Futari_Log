@@ -2,7 +2,7 @@
   <div class="flex items-center justify-between px-4 md:px-8 py-3">
 
     <!-- ロゴ（左端・控えめ） -->
-    <%= link_to root_path do %>
+    <%= link_to(current_user.couples.exists? ? root_path : couples_onboarding_path) do %>
       <%= image_tag "5442aa2a-9377-4f2d-ba76-87585137722f.png",
             class: "h-9 md:h-11" %>
     <% end %>

@@ -1,0 +1,29 @@
+ja:
+  time:
+    formats:
+      invitation_expires: "%Y年%m月%d日(%a) %H時%M分"
+
+  couples:
+    already_coupled: "すでにカップル設定が完了しています"
+
+    onboarding:
+      title: "カップル設定"
+      description: "どちらかを選択してください"
+      issue: "招待コードを発行する"
+      enter: "招待コードを入力する"
+
+  invitations:
+    use:
+      success: "カップル登録が完了しました"
+      errors:
+        expired: "この招待コードは期限切れです"
+        used: "この招待コードはすでに使用されています"
+        self_use: "自分の招待コードは使用できません"
+        already_coupled: "すでにカップル設定があります"
+        not_found: "招待コードが見つかりません"
+
+    new:
+      title: "招待コード発行"
+      description: "パートナーにこのコードを伝えてください"
+      copy: "コピーしてください"
+      expires_at: "有効期限: %{time}"
