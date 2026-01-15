@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  couple: one
+  code: MyString
+  expires_at: 2026-01-14 19:46:31
+  used_at: 2026-01-14 19:46:31
+
+two:
+  couple: two
+  code: MyString
+  expires_at: 2026-01-14 19:46:31
+  used_at: 2026-01-14 19:46:31

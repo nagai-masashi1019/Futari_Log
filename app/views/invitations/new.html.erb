@@ -1,0 +1,34 @@
+<section class="bg-[#e9f7f7] min-h-[calc(100vh-80px)] flex items-center justify-center px-4">
+  <div class="w-full max-w-2xl bg-white rounded-2xl shadow-sm px-6 py-10 md:px-10">
+
+    <!-- タイトル -->
+    <h1 class="text-2xl md:text-3xl font-bold text-center mb-8">
+      <%= t("invitations.new.title") %>
+    </h1>
+
+    <!-- 説明 -->
+    <p class="text-center text-gray-700 mb-10">
+      <%= t("invitations.new.description") %>
+    </p>
+
+    <!-- 招待コード表示 -->
+    <div class="bg-[#e9f7f7] rounded-xl py-8 px-4 mb-6 text-center">
+      <p class="text-3xl md:text-4xl font-bold tracking-widest">
+        <%= @invitation.code %>
+      </p>
+    </div>
+
+    <!-- コピー案内 -->
+    <div class="flex justify-center mb-8">
+      <p class="text-sm text-gray-700">
+        <%= t("invitations.new.copy") %>
+      </p>
+    </div>
+
+    <!-- 有効期限 -->
+    <p class="text-center text-sm text-gray-600">
+      <%= t("invitations.new.expires_at", time: l(@invitation.expires_at, format: :invitation_expires)) %>
+    </p>
+
+  </div>
+</section>
