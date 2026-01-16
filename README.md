@@ -137,6 +137,7 @@ Futari Logは同棲中や交際歴が長いカップルを主な対象として�
 
 ### デプロイ先
 - Render
+- Neon
 
 ### 使用予定のライブラリ
 - Tailwind CSS（レスポンシブ対応）
@@ -167,13 +168,10 @@ https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=d0
 ---
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/1b520101e2d045b2b00f6f6215916554.png)](https://gyazo.com/1b520101e2d045b2b00f6f6215916554)
+[![Image from Gyazo](https://i.gyazo.com/6bf1319bc75debd24b519991e049a831.png)](https://gyazo.com/6bf1319bc75debd24b519991e049a831)
 
 ## まとめ
 Futari Logは、  
 **自身の実体験から生まれた課題を、Webアプリとしてどう解決できるか**を追求した卒業制作です。
 
 技術だけでなく、UXや心理的負担への配慮を大切にしながら開発を進めます。
-
-## 画面遷移図
-https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=d0Lr8itl5FBzsJac-0

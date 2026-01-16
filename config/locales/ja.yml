@@ -13,19 +13,19 @@ ja:
       enter: "招待コードを入力する"
 
   invitations:
-    title: "招待コード入力"
-    placeholder: "招待コードを入力してください"
-    submit: "つながる"
+    use:
+      title: "招待コード入力"
+      placeholder: "招待コードを入力してください"
+      submit: "つながる"
+      success: "カップル登録が完了しました"
 
-    success: "カップル登録が完了しました"
-
-    errors:
-      expired: "この招待コードは期限切れです"
-      used: "この招待コードはすでに使用されています"
-      unavailable: "この招待コードは使用できません"
-      self_use: "自分の招待コードは使用できません"
-      already_coupled: "すでにカップル設定があります"
-      not_found: "招待コードが見つかりません"
+      errors:
+        expired: "この招待コードは期限切れです"
+        used: "この招待コードはすでに使用されています"
+        unavailable: "この招待コードは使用できません"
+        self_use: "自分の招待コードは使用できません"
+        already_coupled: "すでにカップル設定があります"
+        not_found: "招待コードが見つかりません"
 
     new:
       title: "招待コード発行"
