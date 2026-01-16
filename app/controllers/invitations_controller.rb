@@ -6,6 +6,9 @@ class InvitationsController < ApplicationController
     @invitation = current_user.invitations.create!
   end
 
+  def use_form
+  end
+
   def use
     invitation = Invitation.find_by!(code: params[:code])
 
@@ -27,8 +30,16 @@ class InvitationsController < ApplicationController
     ActiveRecord::Base.transaction do
       couple = Couple.create!
 
-      couple.couple_users.create!(user: invitation.inviter)
-      couple.couple_users.create!(user: current_user)
+      inviter_cu = couple.couple_users.create!(user: invitation.inviter)
+      current_cu = couple.couple_users.create!(user: current_user)
+
+      inviter_cu.update!(
+        partner_nickname: current_user.nickname
+      )
+
+      current_cu.update!(
+        partner_nickname: invitation.inviter.nickname
+      )
 
       invitation.update!(
         couple: couple,

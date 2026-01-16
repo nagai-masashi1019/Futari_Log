@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "home#index"
   devise_for :users
+  # 招待コード発行
   get "invitations/new"
+  # 招待コード参加（追加）
+  get  "invitations/use", to: "invitations#use_form"
+  post "invitations/use", to: "invitations#use"
   namespace :couples do
     get "onboarding", to: "onboarding#choice"
   end
