@@ -1,19 +1,6 @@
 <% if user_signed_in? %>
   <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
-
-    <!-- ===== サイドバー（PC） ===== -->
-    <aside class="hidden md:block w-64 bg-white shrink-0">
-      <nav class="flex flex-col h-full">
-        <div class="px-6 py-4 bg-cyan-100 font-semibold">
-          <%= current_user.nickname.presence || "自分のニックネーム" %>
-        </div>
-
-        <%= link_to "ごきげん記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
-        <%= link_to "ありがとう記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
-        <%= link_to "設定", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
-      </nav>
-    </aside>
-
+  <%= render "shared/sidebar_user" %>
     <!-- ===== メイン＋スマホ用 ===== -->
     <div id="content-wrapper"
          class="flex-1 transition-transform duration-300">
@@ -61,26 +48,6 @@
         </div>
       </main>
     </div>
-
-    <!-- ===== スマホ用サイドバー ===== -->
-    <aside id="mobile-sidebar"
-      class="fixed left-0 top-[61px] h-[calc(100vh-61px)]
-             w-64 bg-white shadow-xl
-             transform -translate-x-full
-             transition-transform duration-300
-             z-40 md:hidden">
-
-      <nav class="flex flex-col h-full">
-        <div class="px-6 py-4 bg-cyan-100 font-semibold">
-          <%= current_user.nickname.presence || "自分のニックネーム" %>
-        </div>
-
-        <%= link_to "ごきげん記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
-        <%= link_to "ありがとう記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
-        <%= link_to "設定", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
-      </nav>
-    </aside>
-
   </div>
 
 <% else %>
