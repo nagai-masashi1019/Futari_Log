@@ -32,3 +32,8 @@ ja:
       description: "パートナーにこのコードを伝えてください"
       copy: "コピーしてください"
       expires_at: "有効期限: %{time}"
+
+  moods:
+    create:
+      success: "ごきげんを記録しました"
+      already_recorded: "本日はすでに記録済みです"
