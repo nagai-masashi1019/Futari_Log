@@ -13,17 +13,17 @@ class InvitationsController < ApplicationController
     invitation = Invitation.find_by!(code: params[:code])
 
     unless invitation.available?
-      redirect_back fallback_location: couples_onboarding_path, alert: t("invitations.errors.unavailable")
+      redirect_back fallback_location: couples_onboarding_path, alert: t("invitations.use.errors.unavailable")
       return
     end
 
     if invitation.inviter == current_user
-      redirect_back fallback_location: couples_onboarding_path, alert: t("invitations.errors.self_use")
+      redirect_back fallback_location: couples_onboarding_path, alert: t("invitations.use.errors.self_use")
       return
     end
 
     if current_user.couples.exists?
-      redirect_to root_path, alert: t("invitations.errors.already_coupled")
+      redirect_to root_path, alert: t("invitations.use.errors.already_coupled")
       return
     end
 
@@ -47,7 +47,7 @@ class InvitationsController < ApplicationController
       )
     end
 
-    redirect_to root_path, notice: t("invitations.success")
+    redirect_to root_path, notice: t("invitations.use.success")
   end
 
   private
