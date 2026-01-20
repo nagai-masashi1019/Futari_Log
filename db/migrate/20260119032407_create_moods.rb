@@ -7,7 +7,7 @@ class CreateMoods < ActiveRecord::Migration[8.1]
 
       t.timestamps
     end
-    
-    add_index :moods, [:user_id, :recorded_on], unique: true
+
+    add_index :moods, [ :user_id, :recorded_on ], unique: true
   end
 end

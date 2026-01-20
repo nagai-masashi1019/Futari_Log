@@ -2,10 +2,12 @@
 <aside class="hidden md:block w-64 bg-white shrink-0">
   <nav class="flex flex-col h-full">
     <div class="px-6 py-4 bg-cyan-100 font-semibold">
-      <%= current_user.nickname.presence || "自分のニックネーム" %>
+      <%= link_to current_user.nickname.presence || "自分のニックネーム",
+                  root_path,
+                  class: "block hover:underline" %>
     </div>
 
-    <%= link_to "ごきげん記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to "ごきげん記録", moods_path, class: "px-6 py-4 hover:bg-cyan-50" %>
     <%= link_to "ありがとう記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
     <%= link_to "設定", "#", class: "px-6 py-4 hover:bg-cyan-50" %>
   </nav>
@@ -21,7 +23,9 @@
 
   <nav class="flex flex-col h-full">
     <div class="px-6 py-4 bg-cyan-100 font-semibold">
-      <%= current_user.nickname.presence || "自分のニックネーム" %>
+      <%= link_to current_user.nickname.presence || "自分のニックネーム",
+                  root_path,
+                  class: "block hover:underline" %>
     </div>
 
     <%= link_to "ごきげん記録", "#", class: "px-6 py-4 hover:bg-cyan-50" %>

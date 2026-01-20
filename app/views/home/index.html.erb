@@ -68,8 +68,8 @@
           <div class="bg-white rounded-3xl shadow-sm p-10">
             <h3 class="font-bold mb-6 text-lg">今週のごきげん傾向</h3>
             <div class="flex items-center gap-8">
-              <span class="text-[64px] md:text-[80px]">😊</span>
-              <span class="text-[64px] md:text-[80px] font-bold">65%</span>
+              <span class="text-[64px] md:text-[80px]"><%= mood_emoji(@weekly_level) %></span>
+              <span class="text-[64px] md:text-[80px] font-bold"><%= @weekly_average %>%</span>
             </div>
           </div>
 

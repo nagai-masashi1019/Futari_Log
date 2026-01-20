@@ -1,6 +1,16 @@
 class MoodsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @week_dates = (Date.current - 6.days..Date.current).to_a.reverse
+
+    moods = current_user.moods.where(recorded_on: @week_dates).index_by(&:recorded_on)
+
+    @weekly_moods = @week_dates.map do |date|
+      [ date, moods[date]&.level || "neutral" ]
+    end
+  end
+
   def create
     mood = current_user.moods.new(
       level: params[:level],
