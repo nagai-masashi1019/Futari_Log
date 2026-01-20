@@ -1,0 +1,42 @@
+<% if user_signed_in? %>
+  <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
+    <%= render "shared/sidebar_user" %>
+
+    <div id="content-wrapper" class="flex-1 transition-transform duration-300">
+      <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
+
+        <!-- ☰（スマホ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <h1 class="text-xl md:text-2xl font-bold mb-8">
+          <%= current_user.nickname %>さんの今週のごきげん傾向
+        </h1>
+
+        <!-- ===== 1週間のごきげん ===== -->
+        <section class="bg-white rounded-3xl shadow-sm p-10 md:p-14 mb-14">
+          <div class="grid grid-cols-7 gap-4 text-center">
+
+            <% @weekly_moods.each do |date, level| %>
+              <div>
+                <div class="text-sm text-gray-500 mb-2">
+                  <%= date_label(date) %>
+                </div>
+                <div class="text-[40px] md:text-[56px]">
+                  <%= mood_emoji(level) %>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+<% end %>
