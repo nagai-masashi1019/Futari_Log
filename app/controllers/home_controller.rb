@@ -6,6 +6,7 @@ class HomeController < ApplicationController
 
     @week_dates = (Date.current - 6.days..Date.current).to_a
 
+    # === 自分のごきげん ===
     moods = current_user.moods
               .where(recorded_on: @week_dates)
               .to_a
