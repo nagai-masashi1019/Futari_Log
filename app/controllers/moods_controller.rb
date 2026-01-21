@@ -9,6 +9,18 @@ class MoodsController < ApplicationController
     @weekly_moods = @week_dates.map do |date|
       [ date, moods[date]&.level || "neutral" ]
     end
+    # === パートナーのごきげん ===
+    if current_user.partner.present?
+      partner_moods = current_user.partner.moods
+        .where(recorded_on: @week_dates)
+        .index_by(&:recorded_on)
+
+      partner_scores = @week_dates.map do |date|
+        partner_moods[date]&.score || 50
+      end
+      @partner_weekly_average = (partner_scores.sum / 7.0).round
+      @partner_weekly_level = Mood.level_from_average(@partner_weekly_average)
+    end
   end
 
   def create

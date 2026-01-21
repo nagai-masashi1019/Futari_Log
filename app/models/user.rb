@@ -9,4 +9,13 @@ class User < ApplicationRecord
   has_many :couples, through: :couple_users
   has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
   has_many :moods, dependent: :destroy
+
+  def partner
+    return nil if couples.blank?
+
+    couples.first
+           .users
+           .where.not(id: id)
+           .first
+  end
 end

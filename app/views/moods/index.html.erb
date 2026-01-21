@@ -14,12 +14,12 @@
           </button>
         </div>
 
-        <h1 class="text-xl md:text-2xl font-bold mb-8">
+        <h1 class="text-xl md:text-2xl font-bold mb-6">
           <%= current_user.nickname %>さんの今週のごきげん傾向
         </h1>
 
         <!-- ===== 1週間のごきげん ===== -->
-        <section class="bg-white rounded-3xl shadow-sm p-10 md:p-14 mb-14">
+        <section class="bg-white rounded-3xl shadow-sm p-10 md:p-24 mb-14">
           <div class="grid grid-cols-7 gap-4 text-center">
 
             <% @weekly_moods.each do |date, level| %>
@@ -36,6 +36,25 @@
           </div>
         </section>
 
+        <% if current_user.partner.present? %>
+          <p class="text-lg font-bold mb-6">
+            最近の<%= current_user.partner.nickname %>さんの様子
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white rounded-3xl shadow-sm p-10">
+              <h3 class="font-bold mb-6 text-lg">今週のごきげん傾向</h3>
+              <div class="flex items-center gap-8">
+                <span class="text-[64px] md:text-[80px]">
+                  <%= mood_emoji(@partner_weekly_level) %>
+                </span>
+                <span class="text-[64px] md:text-[80px] font-bold">
+                  <%= @partner_weekly_average %>%
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </main>
     </div>
   </div>
