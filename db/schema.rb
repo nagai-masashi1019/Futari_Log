@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_19_032407) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_22_052043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -53,6 +53,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_19_032407) do
     t.index ["user_id"], name: "index_moods_on_user_id"
   end
 
+  create_table "thanks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "receiver_id", null: false
+    t.bigint "sender_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_thanks_on_receiver_id"
+    t.index ["sender_id"], name: "index_thanks_on_sender_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
@@ -71,4 +80,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_19_032407) do
   add_foreign_key "invitations", "couples"
   add_foreign_key "invitations", "users", column: "inviter_id"
   add_foreign_key "moods", "users"
+  add_foreign_key "thanks", "users", column: "receiver_id"
+  add_foreign_key "thanks", "users", column: "sender_id"
 end
