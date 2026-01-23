@@ -57,3 +57,4 @@ ja:
       submit: "🌸 ありがとうを贈る 🌸"
     create:
       success: "ありがとうを贈りました 💐"
+      failure: "タグを選択してください"
