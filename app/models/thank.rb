@@ -1,9 +1,11 @@
 class Thank < ApplicationRecord
   belongs_to :sender, class_name: "User"
   belongs_to :receiver, class_name: "User"
+  belongs_to :tag
 
   validates :sender, presence: true
   validates :receiver, presence: true
+  validates :tag, presence: true
   validate :sender_and_receiver_are_different
   validate :same_couple_only
 
