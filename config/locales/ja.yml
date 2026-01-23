@@ -37,3 +37,23 @@ ja:
     create:
       success: "ごきげんを記録しました"
       already_recorded: "本日はすでに記録済みです"
+
+  activerecord:
+    errors:
+      models:
+        thanks:
+          attributes:
+            receiver:
+              same_as_sender: "自分自身にありがとうは送れません"
+              not_same_couple: "パートナー以外には送れません"
+
+  thanks:
+    dashboard:
+      title: "ありがとう記録"
+      send: "🌸 ありがとうを贈る 🌸"
+    new:
+      title: "ありがとうを贈る"
+      description: "ワンタップで気持ちを届けましょう"
+      submit: "🌸 ありがとうを贈る 🌸"
+    create:
+      success: "ありがとうを贈りました 💐"

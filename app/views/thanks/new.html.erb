@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+  <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
+    <%= render "shared/sidebar_user" %>
+
+    <div id="content-wrapper" class="flex-1 transition-transform duration-300">
+      <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
+
+        <!-- ☰（スマホ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <section class="max-w-2xl mx-auto bg-white rounded-3xl shadow-sm px-6 py-10 md:px-10">
+          <h1 class="text-2xl md:text-3xl font-bold text-center mb-8">
+            <%= t("thanks.new.title") %>
+          </h1>
+
+          <p class="text-center text-gray-700 mb-10">
+            <%= t("thanks.new.description") %>
+          </p>
+
+          <div class="text-center">
+            <%= button_to t("thanks.new.submit"),
+                  thanks_path,
+                  method: :post,
+                  class: "px-10 py-4 rounded-full bg-pink-500 text-white font-bold text-lg hover:bg-pink-600 transition" %>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+<% end %>
+
