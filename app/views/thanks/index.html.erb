@@ -39,14 +39,25 @@
                 もらったありがとう
               </h3>
 
-              <div class="border rounded-xl p-4 h-48 overflow-y-auto text-sm text-gray-400 space-y-2">
-                <!-- ダミー（後で each に差し替え） -->
-                <p>・ありがとうがここに表示されます</p>
-                <p>・日付 + タグ表示予定</p>
-                <p>・増えるとスクロールできます</p>
+              <div class="border rounded-xl p-4 h-48 overflow-y-auto text-sm space-y-2">
+                <% if @received_thanks.any? %>
+                  <% @received_thanks.each do |thank| %>
+                    <p>
+                      <span class="text-gray-500">
+                        <%= thank.created_at.strftime("%-m/%-d") %>
+                      </span>
+                      <span class="ml-2">
+                        <%= thank.tag.name %> ありがとう
+                      </span>
+                    </p>
+                  <% end %>
+                <% else %>
+                  <p class="text-gray-400">
+                    まだありがとうがありません
+                  </p>
+                <% end %>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -81,4 +92,3 @@
     </div>
   </div>
 <% end %>
-
