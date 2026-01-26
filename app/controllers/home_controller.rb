@@ -18,5 +18,7 @@ class HomeController < ApplicationController
 
     @weekly_average = (@weekly_scores.sum / 7.0).round
     @weekly_level = Mood.level_from_average(@weekly_average)
+    @weekly_received_thanks_count =
+      Thank.this_week.where(receiver: current_user).count
   end
 end

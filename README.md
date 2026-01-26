@@ -168,7 +168,7 @@ https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=d0
 ---
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/b68124d335862332db67c9bb2f2ee7d8.png)](https://gyazo.com/b68124d335862332db67c9bb2f2ee7d8)
+[![Image from Gyazo](https://i.gyazo.com/8a2aa74ec307816fea7f86e91145cc79.png)](https://gyazo.com/8a2aa74ec307816fea7f86e91145cc79)
 
 ## まとめ
 Futari Logは、  

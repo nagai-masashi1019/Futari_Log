@@ -9,6 +9,10 @@ class Thank < ApplicationRecord
   validate :sender_and_receiver_are_different
   validate :same_couple_only
 
+  scope :this_week, -> {
+    where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
+  }
+
   private
 
   def sender_and_receiver_are_different
