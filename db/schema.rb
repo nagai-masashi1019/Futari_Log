@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_30_075519) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_30_093610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -72,6 +72,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_30_075519) do
     t.index ["tag_id"], name: "index_thanks_on_tag_id"
   end
 
+  create_table "user_hidden_tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["tag_id"], name: "index_user_hidden_tags_on_tag_id"
+    t.index ["user_id"], name: "index_user_hidden_tags_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
@@ -93,4 +102,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_30_075519) do
   add_foreign_key "thanks", "tags"
   add_foreign_key "thanks", "users", column: "receiver_id"
   add_foreign_key "thanks", "users", column: "sender_id"
+  add_foreign_key "user_hidden_tags", "tags"
+  add_foreign_key "user_hidden_tags", "users"
 end

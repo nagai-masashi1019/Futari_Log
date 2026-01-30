@@ -2,21 +2,26 @@
   <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
     <%= render "shared/sidebar_user" %>
 
-    <div class="flex-1">
-      <main class="px-4 md:px-10 py-10">
+    <div id="content-wrapper" class="flex-1 transition-transform duration-300">
+      <main class="px-4 md:px-10 py-10 max-w-2xl mx-auto">
 
-        <section class="max-w-xl mx-auto bg-white rounded-3xl shadow-sm px-6 py-10">
-          <h1 class="text-2xl font-bold text-center mb-6">
+        <!-- ☰（スマホ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <!-- 新規作成 -->
+        <section class="bg-white rounded-3xl shadow-sm px-6 py-8 mb-10">
+          <h1 class="text-xl font-bold text-center mb-6">
             タグを追加
           </h1>
 
-          <p class="text-center text-gray-600 mb-8">
-            自分専用のタグを作成できます
-          </p>
-
           <%= form_with model: @tag, local: true do |f| %>
             <div class="mb-6">
-              <%= f.label :name, "タグ名", class: "block font-bold mb-2" %>
               <%= f.text_field :name,
                     class: "w-full border rounded-lg px-4 py-2",
                     placeholder: "例：仕事を手伝ってくれた💻" %>
@@ -27,6 +32,32 @@
                     class: "px-8 py-3 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600" %>
             </div>
           <% end %>
+        </section>
+
+        <!-- 表示管理 -->
+        <section class="bg-white rounded-3xl shadow-sm px-6 py-8">
+          <h2 class="text-lg font-bold mb-6 text-center">
+            タグの表示設定
+          </h2>
+
+          <ul class="space-y-4">
+            <% @tags.each do |tag| %>
+              <% hidden = current_user.user_hidden_tags.exists?(tag:) %>
+
+              <li class="flex justify-between items-center">
+                <span class="<%= 'line-through text-gray-400' if hidden %>">
+                  <%= tag.name %>
+                </span>
+
+                <%= button_to(
+                      hidden ? "表示する" : "非表示",
+                      toggle_visibility_tag_path(tag),
+                      method: :post,
+                      class: "px-4 py-1 rounded-full border text-sm"
+                    ) %>
+              </li>
+            <% end %>
+          </ul>
         </section>
 
       </main>
