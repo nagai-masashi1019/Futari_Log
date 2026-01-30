@@ -32,14 +32,14 @@ class ThanksController < ApplicationController
   def new
     Tag.ensure_defaults!
     @thanks = Thank.new
-    @tags = Tag.all
+    @tags = Tag.for_user(current_user)
   end
 
   def create
     @thanks = Thank.new(thank_params)
     @thanks.sender = current_user
     @thanks.receiver = partner_user
-    @tags = Tag.all
+    @tags = Tag.for_user(current_user)
 
     if @thanks.save
       redirect_to thanks_path, notice: t("thanks.create.success")

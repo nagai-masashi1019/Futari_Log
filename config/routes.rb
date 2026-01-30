@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "tags/new"
+  get "tags/create"
   get "moods/create"
   root "home#index"
   devise_for :users
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   resources :invitations, only: [ :new, :create ]
   resources :moods, only: [ :create, :index ]
   resources :thanks, only: [ :new, :create, :index ]
+  resources :tags, only: %i[new create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
