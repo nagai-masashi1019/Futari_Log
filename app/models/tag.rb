@@ -1,7 +1,9 @@
 class Tag < ApplicationRecord
   has_many :thanks, dependent: :restrict_with_exception
+  belongs_to :created_by_user, class_name: "User", optional: true
 
   validates :name, presence: true, uniqueness: true
+  validates :name, uniqueness: { scope: :created_by_user_id }
 
   DEFAULT_TAGS = [
     "掃除🧹",
@@ -21,5 +23,10 @@ class Tag < ApplicationRecord
     DEFAULT_TAGS.each do |name|
       find_or_create_by!(name: name)
     end
+  end
+
+  # 表示用（デフォルト + 自分のタグ）
+  def self.for_user(user)
+    where(created_by_user_id: [nil, user.id])
   end
 end
