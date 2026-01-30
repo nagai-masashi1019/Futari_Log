@@ -30,6 +30,7 @@ class ThanksController < ApplicationController
   end
 
   def new
+    Tag.ensure_defaults!
     @thanks = Thank.new
     @tags = Tag.all
   end
