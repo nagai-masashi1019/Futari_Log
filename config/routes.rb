@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "couple_settings/show"
+  get "couple_settings/update"
+  get "settings/show"
   get "tags/new"
   get "tags/create"
   get "moods/create"
@@ -21,6 +24,8 @@ Rails.application.routes.draw do
       post :toggle_visibility
     end
   end
+  resource :settings, only: [ :show ]
+  resource :couple_settings, only: [ :show, :update ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -1,0 +1,58 @@
+<% if user_signed_in? %>
+  <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
+    <%= render "shared/sidebar_user" %>
+
+    <div id="content-wrapper" class="flex-1 transition-transform duration-300">
+      <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
+
+        <!-- ☰（スマホ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <section class="max-w-xl mx-auto bg-white rounded-3xl shadow-sm px-6 py-10">
+          <h1 class="text-xl font-bold text-center mb-8">
+            カップル設定
+          </h1>
+
+          <% if @partner.present? %>
+            <%= form_with model: @couple_user,
+                  url: couple_settings_path,
+                  method: :patch,
+                  local: true do |f| %>
+
+              <div class="mb-6">
+                <label class="block font-bold mb-2">
+                  パートナーの表示名（自分だけに表示されます）
+                </label>
+
+                <%= f.text_field :partner_nickname,
+                      class: "w-full border rounded-lg px-4 py-2",
+                      placeholder: @partner.nickname %>
+              </div>
+
+              <div class="text-center">
+                <%= f.submit "更新する",
+                      class: "px-8 py-3 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600" %>
+              </div>
+            <% end %>
+
+            <!-- 次 issue 用 -->
+            <div class="mt-10 border-t pt-6 text-center text-gray-400">
+              カップル解除（準備中）
+            </div>
+          <% else %>
+            <p class="text-center text-gray-500">
+              まだカップルが設定されていません
+            </p>
+          <% end %>
+        </section>
+
+      </main>
+    </div>
+  </div>
+<% end %>
