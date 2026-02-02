@@ -38,7 +38,7 @@
 
         <% if current_user.partner.present? %>
           <p class="text-lg font-bold mb-6">
-            最近の<%= current_user.partner.nickname %>さんの様子
+            最近の<%= @partner_display_name %>さんの様子
           </p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">

@@ -1,0 +1,48 @@
+<% if user_signed_in? %>
+  <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
+    <%= render "shared/sidebar_user" %>
+
+    <div id="content-wrapper" class="flex-1 transition-transform duration-300">
+      <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
+
+        <!-- ☰（スマホ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <h1 class="text-2xl font-bold text-center mb-10">
+          設定
+        </h1>
+
+        <div class="max-w-md mx-auto space-y-6">
+          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
+            アカウント設定（準備中）
+          </div>
+
+          <%= link_to "カップル設定", couple_settings_path,
+                class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
+
+          <%= link_to "ありがとうタグ管理", new_tag_path,
+                class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
+
+          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
+            通知設定（準備中）
+          </div>
+
+          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
+            利用規約（準備中）
+          </div>
+
+          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
+            プライバシーポリシー（準備中）
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+<% end %>

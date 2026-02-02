@@ -2,6 +2,11 @@ class MoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @partner = current_user.partner
+    @partner_display_name =
+      current_user.couple_users.first&.partner_nickname.presence ||
+      @partner&.nickname
+
     @week_dates = (Date.current - 6.days..Date.current).to_a.reverse
 
     moods = current_user.moods.where(recorded_on: @week_dates).index_by(&:recorded_on)
