@@ -20,6 +20,7 @@
           </h1>
 
           <% if @partner.present? %>
+            <!-- パートナー表示名変更 -->
             <%= form_with model: @couple_user,
                   url: couple_settings_path,
                   method: :patch,
@@ -37,14 +38,40 @@
 
               <div class="text-center">
                 <%= f.submit "更新する",
-                      class: "px-8 py-3 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600" %>
+                      class: "px-8 py-3 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600 transition" %>
               </div>
             <% end %>
 
-            <!-- 次 issue 用 -->
-            <div class="mt-10 border-t pt-6 text-center text-gray-400">
-              カップル解除（準備中）
+            <!-- カップル解除 -->
+            <div class="mt-12 border-t pt-8">
+              <h2 class="text-sm font-bold text-red-500 mb-4 text-center">
+                カップル解除
+              </h2>
+
+              <p class="text-xs text-gray-500 text-center mb-6 leading-relaxed">
+                カップルを解除すると、これまでの関係データはすべて削除される可能性があります。<br>
+                この操作は取り消せません。
+              </p>
+
+              <div class="text-center">
+                <%= button_to "カップル解除",
+                      couple_settings_path,
+                      method: :delete,
+                      data: {
+                        turbo_confirm: "本当にカップル設定を解除しますか？\n一度解除すると元に戻せません。"
+                      },
+                      class: "
+                        px-6 py-3
+                        rounded-full
+                        bg-red-500
+                        text-white
+                        font-bold
+                        hover:bg-red-600
+                        transition
+                      " %>
+              </div>
             </div>
+
           <% else %>
             <p class="text-center text-gray-500">
               まだカップルが設定されていません

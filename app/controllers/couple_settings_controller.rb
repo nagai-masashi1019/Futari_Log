@@ -1,4 +1,3 @@
-# app/controllers/couple_settings_controller.rb
 class CoupleSettingsController < ApplicationController
   before_action :authenticate_user!
 
@@ -17,6 +16,24 @@ class CoupleSettingsController < ApplicationController
       flash.now[:alert] = "更新に失敗しました"
       render :show, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    couple = current_user.couples.first
+
+    # 念のためのガード
+    if couple.nil?
+      redirect_to couples_onboarding_path,
+        alert: "カップルが存在しません"
+      return
+    end
+
+    Couple.transaction do
+      couple.destroy!
+    end
+
+    redirect_to couples_onboarding_path,
+      notice: "カップル設定を解除しました"
   end
 
   private
