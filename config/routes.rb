@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "static_pages/terms"
+  get "static_pages/privacy"
   get "couple_settings/show"
   get "couple_settings/update"
   get "settings/show"
@@ -12,6 +14,9 @@ Rails.application.routes.draw do
   # 招待コード参加（追加）
   get  "invitations/use", to: "invitations#use_form"
   post "invitations/use", to: "invitations#use"
+  # 利用規約とプライバシーポリシー
+  get "/terms",   to: "static_pages#terms"
+  get "/privacy", to: "static_pages#privacy"
   namespace :couples do
     get "onboarding", to: "onboarding#choice"
   end
