@@ -33,13 +33,11 @@
             通知設定（準備中）
           </div>
 
-          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
-            利用規約（準備中）
-          </div>
+          <%= link_to "利用規約", terms_path,
+                class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
-          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
-            プライバシーポリシー（準備中）
-          </div>
+          <%= link_to "プライバシーポリシー", privacy_path,
+                class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
         </div>
 
       </main>

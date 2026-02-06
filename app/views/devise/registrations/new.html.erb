@@ -34,31 +34,44 @@
       </div>
 
       <!-- パスワード確認 -->
-      <div class="mb-8 text-left">
+      <div class="mb-6 text-left">
         <%= f.label :password_confirmation, "パスワード（確認）",
               class: "block text-sm font-medium text-gray-700 mb-1" %>
         <%= f.password_field :password_confirmation,
               class: "w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-300" %>
       </div>
 
+      <!-- 利用規約同意 -->
+      <div class="mb-8">
+        <label class="flex items-start text-sm text-gray-700">
+          <%= check_box_tag :accept_terms, "1", false,
+                required: true,
+                class: "mt-1 mr-2" %>
+          <span class="leading-relaxed">
+            <%= link_to "利用規約", terms_path,
+                  target: "_blank",
+                  class: "underline hover:text-gray-800" %> と
+            <%= link_to "プライバシーポリシー", privacy_path,
+                  target: "_blank",
+                  class: "underline hover:text-gray-800" %>
+            に同意します
+          </span>
+        </label>
+      </div>
+
       <!-- 登録ボタン -->
-      <div class="flex justify-end mb-6">
+      <div class="flex justify-center mb-6">
         <%= f.submit "登録",
               class: "px-8 py-2 rounded-md bg-gray-200 border border-gray-500 text-gray-800 hover:bg-gray-300 transition" %>
       </div>
 
     <% end %>
 
-    <!-- 利用規約 / プライバシー -->
-    <div class="text-center text-sm text-gray-600 space-y-3">
-      <div class="flex justify-center gap-6">
-        <span>利用規約 <span class="text-green-500">✅</span></span>
-        <span>プライバシーポリシー <span class="text-green-500">✅</span></span>
-      </div>
-
+    <!-- ログイン導線 -->
+    <div class="text-center text-sm text-gray-600">
       <%= link_to "登録済みの方はこちら",
             new_user_session_path,
-            class: "underline hover:text-gray-800 block mt-2" %>
+            class: "underline hover:text-gray-800" %>
     </div>
 
   </div>
