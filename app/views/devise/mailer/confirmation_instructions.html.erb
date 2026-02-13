@@ -1,5 +1,19 @@
-<p>Welcome <%= @email %>!</p>
+<p><%= @email %> 様</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>
+  Futari Log へのご登録ありがとうございます。
+</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>
+  下記のリンクをクリックして、メールアドレスの確認を完了してください。
+</p>
+
+<p style="margin: 24px 0;">
+  <%= link_to "メールアドレスを確認する",
+        confirmation_url(@resource, confirmation_token: @token),
+        style: "display:inline-block;padding:12px 20px;background:#14b8a6;color:#fff;text-decoration:none;border-radius:6px;" %>
+</p>
+
+<p>
+  今後とも Futari Log をよろしくお願いいたします。
+</p>
