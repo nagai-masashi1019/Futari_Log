@@ -1,7 +1,20 @@
-<p>Hello <%= @email %>!</p>
+<p><%= @email %> 様</p>
 
 <% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
+  <p>
+    Futari Log に登録されているメールアドレスの変更申請を受け付けました。
+  </p>
+
+  <p>
+    新しいメールアドレス：<br>
+    <strong><%= @resource.unconfirmed_email %></strong>
+  </p>
 <% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+  <p>
+    Futari Log に登録されているメールアドレスが変更されました。
+  </p>
 <% end %>
+
+<p>
+  もしこの変更に心当たりがない場合は、サポートまでご連絡ください。
+</p>
