@@ -27,6 +27,7 @@ services:
       - bundle_data:/usr/local/bundle:cached
       - node_modules:/myapp/node_modules
     environment:
+      MAIL_FROM: "Futari Log <no-reply@resend.dev>"
       TZ: Asia/Tokyo
     ports:
       - "3000:3000"

@@ -18,26 +18,14 @@ Rails.application.configure do
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.asset_host = "http://assets.example.com"
-
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
-
-  # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  # config.assume_ssl = true
-
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
-
-  # Skip http-to-https redirect for the default health check endpoint.
-  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
   # Log to STDOUT with the current request id as a default log tag.
   config.log_tags = [ :request_id ]
   config.logger   = ActiveSupport::TaggedLogging.logger(STDOUT)
 
-  # Change to "debug" to log everything (including potentially personally-identifiable information!).
+  # Log level
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Prevent health checks from clogging up the logs.
@@ -46,56 +34,38 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Replace the default in-process memory cache store with a durable alternative.
+  # Cache / Job
   config.cache_store = :solid_cache_store
-
-  # Replace the default in-process and non-durable queuing backend for Active Job.
   config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue } }
 
-  # === Action Mailer 設定（Gmail SMTP） ==========================
+  # ================== Action Mailer（Resend） ==================
 
-  # メール送信エラーをログに出す（本番では重要）
+  # メール送信エラーを表示（本番では必須）
   config.action_mailer.raise_delivery_errors = true
 
-  # 配送方法を SMTP に指定
-  config.action_mailer.delivery_method = :smtp
+  # Resend を使う
+  config.action_mailer.delivery_method = :resend
 
-  # Gmail SMTP 設定（環境変数使用）
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "gmail.com",
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_APP_PASSWORD"],
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
-
-  # Devise のメール内リンク用 URL
+  # メール内リンク用 URL（Devise）
   config.action_mailer.default_url_options = {
     host: "futari-log.onrender.com",
     protocol: "https"
   }
 
-  # =============================================================
+  # ============================================================
 
-  # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
-  # the I18n.default_locale when a translation cannot be found).
+  # I18n
   config.i18n.fallbacks = true
 
-  # Do not dump schema after migrations.
+  # Active Record
   config.active_record.dump_schema_after_migration = false
-
-  # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
-  # Enable DNS rebinding protection and other `Host` header attacks.
+  # Host Authorization
   # config.hosts = [
-  #   "example.com",     # Allow requests from example.com
-  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
+  #   "example.com",
+  #   /.*\.example\.com/
   # ]
-  #
-  # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
