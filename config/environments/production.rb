@@ -47,6 +47,10 @@ Rails.application.configure do
   # Resend を使う
   config.action_mailer.delivery_method = :resend
 
+  config.action_mailer.resend_settings = {
+    api_key: ENV.fetch("RESEND_API_KEY")
+  }
+
   # メール内リンク用 URL（Devise）
   config.action_mailer.default_url_options = {
     host: "futari-log.onrender.com",
