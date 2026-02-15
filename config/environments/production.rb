@@ -16,7 +16,7 @@ Rails.application.configure do
 
   config.active_storage.service = :local
 
-  config.log_tags = [:request_id]
+  config.log_tags = [ :request_id ]
   config.logger = ActiveSupport::TaggedLogging.logger(STDOUT)
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
@@ -32,8 +32,7 @@ Rails.application.configure do
   # ------------------------------------------------------------
 
   config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :resend
 
   config.action_mailer.default_url_options = {
     host: "futari-log.onrender.com",
@@ -46,5 +45,5 @@ Rails.application.configure do
 
   config.i18n.fallbacks = true
   config.active_record.dump_schema_after_migration = false
-  config.active_record.attributes_for_inspect = [:id]
+  config.active_record.attributes_for_inspect = [ :id ]
 end
