@@ -41,17 +41,19 @@ Rails.application.configure do
 
   # ================== Action Mailer（Resend） ==================
 
-  # メール送信エラーを表示（本番では必須）
-  config.action_mailer.raise_delivery_errors = true
+  # Resend SMTP を使う
+  config.action_mailer.delivery_method = :smtp
 
-  # Resend を使う
-  config.action_mailer.delivery_method = :resend
-
-  config.action_mailer.resend_settings = {
-    api_key: ENV.fetch("RESEND_API_KEY")
+  config.action_mailer.smtp_settings = {
+    address: "smtp.resend.com",
+    port: 587,
+    domain: "resend.dev",
+    authentication: :login,
+    user_name: "resend",
+    password: ENV.fetch("RESEND_API_KEY"),
+    enable_starttls_auto: true
   }
 
-  # メール内リンク用 URL（Devise）
   config.action_mailer.default_url_options = {
     host: "futari-log.onrender.com",
     protocol: "https"
