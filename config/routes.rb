@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "accounts/show"
+  get "accounts/update"
   get "static_pages/terms"
   get "static_pages/privacy"
   get "couple_settings/show"
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
   resources :invitations, only: [ :new, :create ]
   resources :moods, only: [ :create, :index ]
   resources :thanks, only: [ :new, :create, :index ]
-  resources :tags, only: %i[new create] do
+  resources :tags, only: [ :new, :create ] do
     member do
       post :toggle_visibility
     end
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
   resource :couple_settings, only: [ :show, :update ] do
     delete :destroy
   end
+  resource :account, only: [ :show, :update ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
