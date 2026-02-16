@@ -1,0 +1,73 @@
+<% if user_signed_in? %>
+  <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
+    <%= render "shared/sidebar_user" %>
+
+    <div id="content-wrapper" class="flex-1 transition-transform duration-300">
+      <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
+
+        <!-- ☰（スマホ） -->
+        <div class="md:hidden mb-6">
+          <button id="sidebar-toggle"
+            class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
+            <span class="text-xl">☰</span>
+            <span class="text-sm">メニュー</span>
+          </button>
+        </div>
+
+        <section class="max-w-xl mx-auto bg-white rounded-3xl shadow-sm px-6 py-10">
+          <h1 class="text-xl font-bold text-center mb-8">
+            アカウント設定
+          </h1>
+
+          <%= form_with model: @user, url: account_path, method: :patch, local: true do |f| %>
+
+            <!-- ニックネーム -->
+            <div class="mb-6">
+              <label class="block font-bold mb-2">
+                ニックネーム
+              </label>
+
+              <%= f.text_field :nickname,
+                    class: "w-full border rounded-lg px-4 py-2",
+                    placeholder: "ニックネームを入力" %>
+            </div>
+
+            <!-- メールアドレス（将来用・今は表示のみ） -->
+            <div class="mb-8">
+              <label class="block font-bold mb-2 text-gray-400">
+                メールアドレス（変更機能は後日追加）
+              </label>
+
+              <input type="email"
+                value="<%= current_user.email %>"
+                disabled
+                class="w-full border rounded-lg px-4 py-2 bg-gray-100 text-gray-500">
+            </div>
+
+            <div class="text-center">
+              <%= f.submit "変更を保存",
+                    class: "px-8 py-3 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600 transition" %>
+            </div>
+          <% end %>
+
+          <!-- パスワード変更 -->
+          <div class="mt-10 text-center">
+            <%= link_to "パスワードを変更する",
+                  edit_user_registration_path,
+                  class: "text-sm text-blue-500 underline" %>
+          </div>
+
+          <!-- ログアウト -->
+          <div class="mt-6 text-center">
+            <%= button_to "ログアウト",
+                  destroy_user_session_path,
+                  method: :delete,
+                  class: "text-sm text-gray-500 underline" %>
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+<% end %>

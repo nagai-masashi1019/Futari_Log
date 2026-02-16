@@ -19,9 +19,8 @@
         </h1>
 
         <div class="max-w-md mx-auto space-y-6">
-          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
-            アカウント設定（準備中）
-          </div>
+          <%= link_to "アカウント設定", account_path,
+                class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
           <%= link_to "カップル設定", couple_settings_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
