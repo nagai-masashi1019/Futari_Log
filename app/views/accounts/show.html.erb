@@ -34,14 +34,22 @@
 
             <!-- メールアドレス（将来用・今は表示のみ） -->
             <div class="mb-8">
-              <label class="block font-bold mb-2 text-gray-400">
-                メールアドレス（変更機能は後日追加）
-              </label>
+              <div class="mb-8">
+                <label class="block font-bold mb-2">
+                  メールアドレス
+                </label>
 
-              <input type="email"
-                value="<%= current_user.email %>"
-                disabled
-                class="w-full border rounded-lg px-4 py-2 bg-gray-100 text-gray-500">
+                <div class="flex items-center gap-3">
+                  <input type="email"
+                    value="<%= current_user.email %>"
+                    disabled
+                    class="flex-1 border rounded-lg px-4 py-2 bg-gray-100 text-gray-500">
+
+                  <%= link_to "変更",
+                        edit_user_email_path,
+                        class: "text-sm text-blue-500 underline whitespace-nowrap" %>
+                </div>
+              </div>
             </div>
 
             <div class="text-center">

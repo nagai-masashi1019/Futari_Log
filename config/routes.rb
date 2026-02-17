@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   get "tags/create"
   get "moods/create"
   root "home#index"
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+  devise_scope :user do
+    get "users/edit_email", to: "users/registrations#edit_email", as: :edit_user_email
+  end
   # 招待コード発行
   get "invitations/new"
   # 招待コード参加（追加）
