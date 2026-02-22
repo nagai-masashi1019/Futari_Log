@@ -21,9 +21,13 @@ Rails.application.routes.draw do
   # 招待コード参加（追加）
   get  "invitations/use", to: "invitations#use_form"
   post "invitations/use", to: "invitations#use"
-  # 利用規約とプライバシーポリシー
+  # ===== Static Help Pages =====
+  get "/about", to: "static_pages#about"
+  get "/how_to_use", to: "static_pages#how_to_use"
+  get "/faq", to: "static_pages#faq"
   get "/terms",   to: "static_pages#terms"
   get "/privacy", to: "static_pages#privacy"
+  get "/support", to: "static_pages#support"
   namespace :couples do
     get "onboarding", to: "onboarding#choice"
   end
