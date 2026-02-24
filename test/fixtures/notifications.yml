@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipient: one
+  actor: one
+  action_type: MyString
+  read: false
+
+two:
+  recipient: two
+  actor: two
+  action_type: MyString
+  read: false

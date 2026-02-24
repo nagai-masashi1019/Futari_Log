@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "notification_settings/edit"
+  get "notification_settings/update"
+  get "notifications/index"
   get "accounts/show"
   get "accounts/update"
   get "static_pages/terms"
@@ -40,11 +43,17 @@ Rails.application.routes.draw do
       post :toggle_visibility
     end
   end
+  resources :notifications, only: [ :index ] do
+    collection do
+      patch :mark_all_as_read
+    end
+  end
   resource :settings, only: [ :show ]
   resource :couple_settings, only: [ :show, :update ] do
     delete :destroy
   end
   resource :account, only: [ :show, :update ]
+  resource :notification_settings, only: [ :edit, :update ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
