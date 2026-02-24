@@ -13,6 +13,7 @@ class Thank < ApplicationRecord
     where(created_at: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
   }
 
+  after_create :notify_partner
   private
 
   def sender_and_receiver_are_different
@@ -24,5 +25,15 @@ class Thank < ApplicationRecord
     return if sender.couples.first == receiver.couples.first
 
     errors.add(:receiver, :not_same_couple)
+  end
+
+  def notify_partner
+    return unless receiver.notify_on_thanks?
+
+    Notification.create!(
+      recipient: receiver,
+      actor: sender,
+      action_type: "thanks"
+    )
   end
 end

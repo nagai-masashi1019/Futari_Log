@@ -35,4 +35,18 @@ class Mood < ApplicationRecord
 
   validates :level, presence: true
   validates :recorded_on, presence: true
+
+  after_create :notify_partner
+  private
+
+  def notify_partner
+    partner = user.couple_users.first&.couple&.users&.where.not(id: user.id)&.first
+    return unless partner&.notify_on_mood?
+
+    Notification.create!(
+      recipient: partner,
+      actor: user,
+      action_type: "mood"
+    )
+  end
 end

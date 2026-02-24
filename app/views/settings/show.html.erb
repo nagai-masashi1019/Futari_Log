@@ -28,9 +28,8 @@
           <%= link_to "ありがとうタグ管理", new_tag_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
-          <div class="block text-center border rounded-full py-4 bg-gray-100 text-gray-400">
-            通知設定（準備中）
-          </div>
+          <%= link_to "通知設定", notification_settings_edit_path,
+                class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
           <%= link_to "その他/ヘルプ/サポート", support_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>

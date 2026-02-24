@@ -9,6 +9,20 @@
 
     <!-- PCナビ（右端） -->
     <nav class="hidden md:flex items-center gap-6">
+
+      <% unread_count = current_user.notifications.unread.count %>
+
+      <!-- 通知ベル -->
+      <%= link_to notifications_path, class: "relative text-xl" do %>
+        🔔
+        <% if unread_count > 0 %>
+          <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
+            <%= unread_count %>
+          </span>
+        <% end %>
+      <% end %>
+
+      <!-- ログアウト -->
       <%= button_to "ログアウト",
             destroy_user_session_path,
             method: :delete,
@@ -27,6 +41,20 @@
   <!-- モバイルナビ -->
   <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
     <div class="flex flex-col items-center py-4 gap-4">
+
+      <% unread_count = current_user.notifications.unread.count %>
+
+      <!-- モバイル通知ベル -->
+      <%= link_to notifications_path, class: "relative text-xl" do %>
+        🔔 通知
+        <% if unread_count > 0 %>
+          <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
+            <%= unread_count %>
+          </span>
+        <% end %>
+      <% end %>
+
+      <!-- ログアウト -->
       <%= button_to "ログアウト",
             destroy_user_session_path,
             method: :delete,

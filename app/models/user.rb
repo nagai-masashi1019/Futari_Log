@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
   has_many :moods, dependent: :destroy
   has_many :user_hidden_tags, dependent: :destroy
+  has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
 
   def partner
     return nil if couples.blank?
