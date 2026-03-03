@@ -35,7 +35,7 @@
 
               <div class="flex flex-wrap gap-3 justify-center">
                 <% @tags.each do |tag| %>
-                  <label class="cursor-pointer">
+                  <label class="cursor-pointer my-1">
                     <%= f.radio_button :tag_id, tag.id, class: "hidden peer" %>
                     <span
                       class="

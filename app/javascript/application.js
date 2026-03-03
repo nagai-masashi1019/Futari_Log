@@ -3,15 +3,23 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 
 document.addEventListener("turbo:load", () => {
-  const button = document.getElementById("mobile-menu-button");
-  const menu = document.getElementById("mobile-menu");
 
-  if (!button || !menu) return;
+  const button = document.getElementById("mobile-menu-button")
+  const menu = document.getElementById("mobile-menu")
+
+  if (!button || !menu) return
 
   button.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-});
+    menu.classList.toggle("hidden")
+
+    if (menu.classList.contains("hidden")) {
+      button.textContent = "☰"
+    } else {
+      button.textContent = "×"
+    }
+  })
+
+})
 
 document.addEventListener("turbo:load", () => {
   const toggle = document.getElementById("sidebar-toggle");
@@ -37,3 +45,18 @@ document.addEventListener("turbo:load", () => {
     sidebar.classList.contains("-translate-x-full") ? open() : close();
   });
 });
+
+window.togglePassword = function(fieldId, button) {
+  const field = document.getElementById(fieldId)
+  const icon = button.querySelector("i")
+
+  if (field.type === "password") {
+    field.type = "text"
+    icon.classList.remove("fa-eye")
+    icon.classList.add("fa-eye-slash")
+  } else {
+    field.type = "password"
+    icon.classList.remove("fa-eye-slash")
+    icon.classList.add("fa-eye")
+  }
+}
