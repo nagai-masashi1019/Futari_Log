@@ -10,12 +10,12 @@
           <button id="sidebar-toggle"
             class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
             <span class="text-xl">☰</span>
-            <span class="text-sm">メニュー</span>
+            <span class="text-sm"><%= t("thanks.index.menu") %></span>
           </button>
         </div>
 
         <h1 class="text-xl md:text-2xl font-bold mb-6">
-          <%= current_user.nickname %>さんのありがとう記録
+          <%= t("thanks.index.title", name: current_user.nickname) %>
         </h1>
 
         <!-- ===== 上段：送る＋一覧 ===== -->
@@ -29,14 +29,14 @@
                     class: "px-8 py-4 rounded-full bg-pink-500 text-white font-bold text-lg hover:bg-pink-600 transition mb-6" %>
 
               <p class="text-gray-500 text-sm text-center">
-                相手に感謝を届けましょう
+                <%= t("thanks.index.description") %>
               </p>
             </div>
 
-            <!-- 右：もらったありがとう一覧（空・スクロール） -->
+            <!-- 右：もらったありがとう一覧 -->
             <div>
               <h3 class="font-bold mb-4">
-                もらったありがとう
+                <%= t("thanks.index.received_title") %>
               </h3>
 
               <div class="border rounded-xl p-4 h-48 overflow-y-auto text-sm space-y-2">
@@ -47,13 +47,13 @@
                         <%= thank.created_at.strftime("%-m/%-d") %>
                       </span>
                       <span class="ml-2">
-                        <%= thank.tag.name %> ありがとう
+                        <%= thank.tag.name %> <%= t("thanks.index.received_suffix") %>
                       </span>
                     </p>
                   <% end %>
                 <% else %>
                   <p class="text-gray-400">
-                    まだありがとうがありません
+                    <%= t("thanks.index.empty") %>
                   </p>
                 <% end %>
               </div>
@@ -62,7 +62,7 @@
         </section>
 
         <h3 class="font-bold mb-6 text-lg">
-          ありがとう集計 （※グラフが表示されていない場合は一度画面を更新してください）
+          <%= t("thanks.index.summary_title") %>
         </h3>
 
         <!-- ===== 下段：グラフ＆件数 ===== -->
@@ -74,15 +74,18 @@
 
           <div class="bg-white rounded-3xl shadow-sm p-10">
             <h3 class="font-bold mb-6 text-lg">
-              今週贈ったありがとう
+              <%= t("thanks.index.weekly_sent_title") %>
             </h3>
             <div class="flex items-center gap-6">
               <span class="text-[56px] md:text-[72px]">💌</span>
-              <span class="text-[56px] md:text-[72px] font-bold"><%= @weekly_sent_thanks_count %>件</span>
+              <span class="text-[56px] md:text-[72px] font-bold">
+                <%= @weekly_sent_thanks_count %><%= t("home.index.thanks_unit") %>
+              </span>
             </div>
           </div>
 
         </div>
+
         <!-- Chart.js CDN -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -104,7 +107,7 @@
               data: {
                 labels: labels,
                 datasets: [{
-                  label: 'もらったありがとう',
+                  label: "<%= j t('thanks.index.chart_label') %>",
                   data: data,
                   borderWidth: 1
                 }]
@@ -115,7 +118,7 @@
                   y: {
                     beginAtZero: true,
                     ticks: {
-                      stepSize: 5   // ★ 5刻み
+                      stepSize: 5
                     }
                   }
                 }
@@ -123,12 +126,10 @@
             });
           };
 
-          // 初回ロード
           document.addEventListener("DOMContentLoaded", drawWeeklyThanksChart);
-
-          // Turbo遷移対応（重要）
           document.addEventListener("turbo:load", drawWeeklyThanksChart);
         </script>
+
       </main>
     </div>
   </div>

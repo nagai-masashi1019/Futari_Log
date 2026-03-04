@@ -10,40 +10,41 @@
           <button id="sidebar-toggle"
             class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
             <span class="text-xl">☰</span>
-            <span class="text-sm">メニュー</span>
+            <span class="text-sm"><%= t("moods.index.menu") %></span>
           </button>
         </div>
 
         <h1 class="text-xl md:text-2xl font-bold mb-6">
-          <%= current_user.nickname %>さんの今週のごきげん傾向
+          <%= t("moods.index.weekly_trend_title", name: current_user.nickname) %>
         </h1>
 
         <!-- ===== 1週間のごきげん ===== -->
-        <section class="bg-white rounded-3xl shadow-sm p-10 md:p-24 mb-14">
-          <div class="grid grid-cols-7 gap-4 text-center">
+        <section class="bg-white rounded-3xl shadow-sm p-6 md:p-26 mb-14">
+          <div class="grid grid-cols-4 md:grid-cols-7 gap-4 text-center">
 
             <% @weekly_moods.each do |date, level| %>
               <div>
-                <div class="text-sm text-gray-500 mb-2 min-w-[3ch] inline-block">
+                <div class="text-xs md:text-sm text-gray-500 mb-2 whitespace-nowrap">
                   <%= date_label(date) %>
                 </div>
-                <div class="text-[40px] md:text-[56px]">
+                <div class="text-3xl md:text-[56px]">
                   <%= mood_emoji(level) %>
                 </div>
               </div>
-            <% end %>
-
+             <% end %>
           </div>
         </section>
 
         <% if current_user.partner.present? %>
           <p class="text-lg font-bold mb-6">
-            最近の<%= @partner_display_name %>さんの様子
+            <%= t("moods.index.partner_recent", name: @partner_display_name) %>
           </p>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="bg-white rounded-3xl shadow-sm p-10">
-              <h3 class="font-bold mb-6 text-lg">今週のごきげん傾向</h3>
+              <h3 class="font-bold mb-6 text-lg">
+                <%= t("moods.index.weekly_trend") %>
+              </h3>
               <div class="flex items-center gap-8">
                 <span class="text-[64px] md:text-[80px]">
                   <%= mood_emoji(@partner_weekly_level) %>

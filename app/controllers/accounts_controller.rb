@@ -9,9 +9,9 @@ class AccountsController < ApplicationController
     @user = current_user
 
     if @user.update(account_params)
-      redirect_to account_path, notice: "アカウント情報を更新しました"
+      redirect_to account_path, notice: t("accounts.update.success")
     else
-      flash.now[:alert] = "更新に失敗しました"
+      flash.now[:alert] = t("accounts.update.failure")
       render :show, status: :unprocessable_entity
     end
   end
@@ -20,6 +20,6 @@ class AccountsController < ApplicationController
 
   def account_params
     params.require(:user).permit(:nickname)
-    # 将来 :email をここに足すだけでOK
+    # 今後 :email をここに足すだけでOK
   end
 end

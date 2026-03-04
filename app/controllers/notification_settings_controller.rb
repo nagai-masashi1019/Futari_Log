@@ -8,7 +8,7 @@ class NotificationSettingsController < ApplicationController
   def update
     @user = current_user
     if @user.update(notification_params)
-      redirect_to edit_notification_settings_path, notice: "更新しました"
+      redirect_to edit_notification_settings_path, notice: t("notification_settings.update.success")
     else
       render :edit
     end

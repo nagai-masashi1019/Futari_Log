@@ -11,9 +11,9 @@ class CoupleSettingsController < ApplicationController
     @partner = current_user.partner
 
     if @couple_user.update(couple_user_params)
-      redirect_to couple_settings_path, notice: "パートナーの表示名を更新しました"
+      redirect_to couple_settings_path, notice: t("couple_settings.update.success")
     else
-      flash.now[:alert] = "更新に失敗しました"
+      flash.now[:alert] = t("couple_settings.update.failure")
       render :show, status: :unprocessable_entity
     end
   end
@@ -24,7 +24,7 @@ class CoupleSettingsController < ApplicationController
     # 念のためのガード
     if couple.nil?
       redirect_to couples_onboarding_path,
-        alert: "カップルが存在しません"
+        alert: t("couple_settings.destroy.not_found")
       return
     end
 
@@ -33,7 +33,7 @@ class CoupleSettingsController < ApplicationController
     end
 
     redirect_to couples_onboarding_path,
-      notice: "カップル設定を解除しました"
+      notice: t("couple_settings.destroy.success")
   end
 
   private

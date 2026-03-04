@@ -3,11 +3,11 @@
 
     <!-- タイトル -->
     <h1 class="text-2xl md:text-3xl font-bold text-center mb-10">
-      パスワード変更
+      <%= t("devise.registrations.password_edit.title") %>
     </h1>
 
     <p class="text-sm text-gray-600 text-center mb-8">
-      新しいパスワードを設定してください
+      <%= t("devise.registrations.password_edit.description") %>
     </p>
 
     <%= form_for(resource,
@@ -19,7 +19,8 @@
 
       <!-- 新しいパスワード -->
       <div class="mb-6">
-        <%= f.label :password, "新しいパスワード",
+        <%= f.label :password,
+              t("devise.registrations.password_edit.new_password_label"),
               class: "block text-sm font-medium text-gray-700 mb-1" %>
 
         <%= f.password_field :password,
@@ -29,14 +30,16 @@
 
         <% if @minimum_password_length %>
           <p class="text-xs text-gray-500 mt-1">
-            ※ <%= @minimum_password_length %>文字以上
+            ※ <%= t("devise.registrations.password_edit.minimum_length",
+                    count: @minimum_password_length) %>
           </p>
         <% end %>
       </div>
 
       <!-- パスワード確認 -->
       <div class="mb-6">
-        <%= f.label :password_confirmation, "新しいパスワード（確認）",
+        <%= f.label :password_confirmation,
+              t("devise.registrations.password_edit.password_confirmation_label"),
               class: "block text-sm font-medium text-gray-700 mb-1" %>
 
         <%= f.password_field :password_confirmation,
@@ -47,7 +50,8 @@
 
       <!-- 現在のパスワード -->
       <div class="mb-10">
-        <%= f.label :current_password, "現在のパスワード",
+        <%= f.label :current_password,
+              t("devise.registrations.password_edit.current_password_label"),
               class: "block text-sm font-medium text-gray-700 mb-1" %>
 
         <%= f.password_field :current_password,
@@ -58,7 +62,7 @@
 
       <!-- 送信 -->
       <div class="flex justify-center">
-        <%= f.submit "パスワードを変更する",
+        <%= f.submit t("devise.registrations.password_edit.submit"),
               class: "px-10 py-2 rounded-md bg-gray-200
                       border border-gray-500 text-gray-800
                       hover:bg-gray-300 transition" %>
@@ -68,7 +72,7 @@
 
     <!-- 戻る -->
     <div class="flex justify-center mt-8 text-sm text-gray-700">
-      <%= link_to "アカウント設定に戻る",
+      <%= link_to t("devise.registrations.password_edit.back_to_account"),
             settings_path,
             class: "underline hover:text-gray-900" %>
     </div>

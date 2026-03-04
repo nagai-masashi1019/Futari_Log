@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
   has_many :user_hidden_tags, dependent: :destroy
   belongs_to :created_by_user, class_name: "User", optional: true
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :name, uniqueness: { scope: :created_by_user_id }
 
   # ありがとう作成画面用（非表示タグ除外）
@@ -18,16 +18,16 @@ class Tag < ApplicationRecord
   }
 
   DEFAULT_TAGS = [
-    "掃除🧹",
-    "洗濯🧺",
-    "ご飯🍚",
-    "洗い物🍴",
-    "ゴミ出し🗑️",
-    "気遣い😌",
-    "助けてくれた🙏",
-    "一緒にいて楽しかった🥰",
-    "サプライズ🎁",
-    "その他🫡"
+    I18n.t("tags.defaults.cleaning"),
+    I18n.t("tags.defaults.laundry"),
+    I18n.t("tags.defaults.cooking"),
+    I18n.t("tags.defaults.dishes"),
+    I18n.t("tags.defaults.trash"),
+    I18n.t("tags.defaults.consideration"),
+    I18n.t("tags.defaults.helped"),
+    I18n.t("tags.defaults.fun_time"),
+    I18n.t("tags.defaults.surprise"),
+    I18n.t("tags.defaults.other")
   ].freeze
 
   # デフォルトタグが存在しなければ作成する

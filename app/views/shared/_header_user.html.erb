@@ -23,7 +23,7 @@
       <% end %>
 
       <!-- ログアウト -->
-      <%= button_to "ログアウト",
+      <%= button_to t("shared.header_user.logout"),
             destroy_user_session_path,
             method: :delete,
             class: "text-sm text-gray-700 hover:text-gray-900" %>
@@ -46,7 +46,7 @@
 
       <!-- モバイル通知ベル -->
       <%= link_to notifications_path, class: "relative text-xl" do %>
-        🔔 通知
+        🔔 <%= t("shared.header_user.notifications") %>
         <% if unread_count > 0 %>
           <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
             <%= unread_count %>
@@ -55,7 +55,7 @@
       <% end %>
 
       <!-- ログアウト -->
-      <%= button_to "ログアウト",
+      <%= button_to t("shared.header_user.logout"),
             destroy_user_session_path,
             method: :delete,
             class: "text-gray-700" %>

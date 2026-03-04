@@ -10,13 +10,13 @@
           <button id="sidebar-toggle"
             class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
             <span class="text-xl">☰</span>
-            <span class="text-sm">メニュー</span>
+            <span class="text-sm"><%= t("settings.show.menu") %></span>
           </button>
         </div>
 
         <section class="max-w-xl mx-auto bg-white rounded-3xl shadow-sm px-6 py-10">
           <h1 class="text-xl font-bold text-center mb-8">
-            カップル設定
+            <%= t("settings.show.couple") %>
           </h1>
 
           <% if @partner.present? %>
@@ -28,7 +28,7 @@
 
               <div class="mb-6">
                 <label class="block font-bold mb-2">
-                  パートナーの表示名（自分だけに表示されます）
+                  <%= t("couple_settings.show.partner_nickname_label") %>
                 </label>
 
                 <%= f.text_field :partner_nickname,
@@ -37,7 +37,7 @@
               </div>
 
               <div class="text-center">
-                <%= f.submit "更新する",
+                <%= f.submit t("couple_settings.show.update"),
                       class: "px-8 py-3 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600 transition" %>
               </div>
             <% end %>
@@ -45,20 +45,19 @@
             <!-- カップル解除 -->
             <div class="mt-12 border-t pt-8">
               <h2 class="text-sm font-bold text-red-500 mb-4 text-center">
-                カップル解除
+                <%= t("couple_settings.show.breakup_title") %>
               </h2>
 
               <p class="text-xs text-gray-500 text-center mb-6 leading-relaxed">
-                カップルを解除すると、これまでの関係データはすべて削除される可能性があります。<br>
-                この操作は取り消せません。
+                <%= t("couple_settings.show.breakup_description_html") %>
               </p>
 
               <div class="text-center">
-                <%= button_to "カップル解除",
+                <%= button_to t("couple_settings.show.breakup_button"),
                       couple_settings_path,
                       method: :delete,
                       data: {
-                        turbo_confirm: "本当にカップル設定を解除しますか？\n一度解除すると元に戻せません。"
+                        turbo_confirm: t("couple_settings.show.breakup_confirm")
                       },
                       class: "
                         px-6 py-3
@@ -74,7 +73,7 @@
 
           <% else %>
             <p class="text-center text-gray-500">
-              まだカップルが設定されていません
+              <%= t("couple_settings.show.not_set") %>
             </p>
           <% end %>
         </section>

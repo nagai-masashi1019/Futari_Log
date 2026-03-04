@@ -1,28 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Futari Log(ふたりログ)
 
 ## サービス概要
@@ -118,11 +95,19 @@ Futari Logは同棲中や交際歴が長いカップルを主な対象として�
 - 「ありがとう」記録
 - 感情・感謝の簡易可視化（週・月単位）
 
-### 本リリースまでに追加したい機能
-- 行動提案機能（ルールベース）
+### 本リリースまでに追加する機能
+- デフォルトタグ作成
+- タグの追加機能
+- タグの非表示機能
+- カップル解除機能
+- パスワードリセット機能(Resend)
+- メールアドレス変更機能
+- 利用規約・プライバシーポリシー
+- 使い方・よくある質問・Futari Logについてページ
 - 通知機能
-- 記録のカスタマイズ
-- 将来的なAIによる提案機能
+
+### 今後追加したい機能
+- AIによる行動提案機能
 
 ---
 
@@ -145,6 +130,7 @@ Futari Logは同棲中や交際歴が長いカップルを主な対象として�
 - Devise（認証）
 
 ### テスト・品質管理（予定）
+- Rubocop
 - RSpec（モデル・ロジックのテストを中心に実装予定）
 
 ### 一般的なCRUD以外の実装予定
@@ -163,12 +149,12 @@ Futari Logでは、まず「記録する・振り返る」という
 
 ---
 ## 画面遷移図
-https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=d0Lr8itl5FBzsJac-0
+https://www.figma.com/design/fTG4X9fg7jQolInUe7zryh/project?node-id=0-1&p=f&t=m9vL1CRZ0EbR6TMQ-0
 
 ---
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/8a2aa74ec307816fea7f86e91145cc79.png)](https://gyazo.com/8a2aa74ec307816fea7f86e91145cc79)
+[![Image from Gyazo](https://i.gyazo.com/400d4572483f06872ebc14fcd2ffd34d.png)](https://gyazo.com/400d4572483f06872ebc14fcd2ffd34d)
 
 ## まとめ
 Futari Logは、  

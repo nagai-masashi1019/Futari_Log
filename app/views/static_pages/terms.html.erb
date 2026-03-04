@@ -2,45 +2,41 @@
   <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow px-6 py-10">
 
     <h1 class="text-2xl font-bold mb-6 text-center">
-      利用規約
+      <%= t("static_pages.terms.title") %>
     </h1>
 
     <div class="text-sm text-gray-700 space-y-6 leading-relaxed">
       <p>
-        本利用規約（以下「本規約」）は、Futari Log（以下「本サービス」）の
-        利用条件を定めるものです。
+        <%= t("static_pages.terms.intro") %>
       </p>
 
-      <h2 class="font-bold">第1条（利用登録）</h2>
+      <h2 class="font-bold"><%= t("static_pages.terms.article1_title") %></h2>
       <p>
-        本サービスの利用を希望する方は、本規約に同意の上、
-        所定の方法により利用登録を行うものとします。
+        <%= t("static_pages.terms.article1_body") %>
       </p>
 
-      <h2 class="font-bold">第2条（禁止事項）</h2>
+      <h2 class="font-bold"><%= t("static_pages.terms.article2_title") %></h2>
       <p>
-        利用者は、以下の行為をしてはなりません。
+        <%= t("static_pages.terms.article2_body") %>
       </p>
       <ul class="list-disc ml-6">
-        <li>法令または公序良俗に違反する行為</li>
-        <li>他の利用者に不利益を与える行為</li>
-        <li>本サービスの運営を妨害する行為</li>
+        <li><%= t("static_pages.terms.prohibited.illegal") %></li>
+        <li><%= t("static_pages.terms.prohibited.harm_users") %></li>
+        <li><%= t("static_pages.terms.prohibited.interfere") %></li>
       </ul>
 
-      <h2 class="font-bold">第3条（サービスの停止）</h2>
+      <h2 class="font-bold"><%= t("static_pages.terms.article3_title") %></h2>
       <p>
-        当方は、必要と判断した場合、事前の通知なく本サービスの全部または一部を
-        停止することができます。
+        <%= t("static_pages.terms.article3_body") %>
       </p>
 
-      <h2 class="font-bold">第4条（免責事項）</h2>
+      <h2 class="font-bold"><%= t("static_pages.terms.article4_title") %></h2>
       <p>
-        本サービスの利用により生じた損害について、
-        当方は一切の責任を負いません。
+        <%= t("static_pages.terms.article4_body") %>
       </p>
 
       <p class="text-right text-xs text-gray-400">
-        制定日：2026年2月
+        <%= t("static_pages.terms.established_on") %>
       </p>
     </div>
 

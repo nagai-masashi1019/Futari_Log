@@ -2,14 +2,14 @@
 <aside class="hidden md:block w-64 bg-white shrink-0">
   <nav class="flex flex-col h-full">
     <div class="px-6 py-4 bg-cyan-100 font-semibold">
-      <%= link_to current_user.nickname.presence || "自分のニックネーム",
+      <%= link_to current_user.nickname.presence || t("shared.sidebar_user.default_nickname"),
                   root_path,
                   class: "block hover:underline" %>
     </div>
 
-    <%= link_to "ごきげん記録", moods_path, class: "px-6 py-4 hover:bg-cyan-50" %>
-    <%= link_to "ありがとう記録", thanks_path, class: "px-6 py-4 hover:bg-cyan-50" %>
-    <%= link_to "設定", settings_path, class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to t("shared.sidebar_user.moods"), moods_path, class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to t("shared.sidebar_user.thanks"), thanks_path, class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to t("shared.sidebar_user.settings"), settings_path, class: "px-6 py-4 hover:bg-cyan-50" %>
   </nav>
 </aside>
 
@@ -23,13 +23,13 @@
 
   <nav class="flex flex-col h-full">
     <div class="px-6 py-4 bg-cyan-100 font-semibold">
-      <%= link_to current_user.nickname.presence || "自分のニックネーム",
+      <%= link_to current_user.nickname.presence || t("shared.sidebar_user.default_nickname"),
                   root_path,
                   class: "block hover:underline" %>
     </div>
 
-    <%= link_to "ごきげん記録", moods_path, class: "px-6 py-4 hover:bg-cyan-50" %>
-    <%= link_to "ありがとう記録", thanks_path, class: "px-6 py-4 hover:bg-cyan-50" %>
-    <%= link_to "設定", settings_path, class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to t("shared.sidebar_user.moods"), moods_path, class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to t("shared.sidebar_user.thanks"), thanks_path, class: "px-6 py-4 hover:bg-cyan-50" %>
+    <%= link_to t("shared.sidebar_user.settings"), settings_path, class: "px-6 py-4 hover:bg-cyan-50" %>
   </nav>
 </aside>
