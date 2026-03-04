@@ -6,23 +6,31 @@
     <div class="md:hidden mb-6">
       <button id="sidebar-toggle"
         class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
-        ☰ メニュー
+        ☰ <%= t("notifications.index.menu") %>
       </button>
     </div>
 
-    <h1 class="text-2xl font-bold text-center mb-8">通知</h1>
+    <h1 class="text-2xl font-bold text-center mb-8">
+      <%= t("notifications.index.title") %>
+    </h1>
 
     <div class="max-w-2xl mx-auto space-y-4">
-      <%= button_to "すべて既読にする", mark_all_as_read_notifications_path,
+      <%= button_to t("notifications.index.mark_all_as_read"), mark_all_as_read_notifications_path,
             method: :patch,
             class: "mb-6 px-4 py-2 bg-white rounded-full shadow" %>
 
       <% @notifications.each do |notification| %>
         <div class="p-4 bg-white rounded-xl shadow <%= 'opacity-60' if notification.read %>">
           <% if notification.action_type == "thanks" %>
-            <p><strong><%= notification.actor.nickname %></strong> さんがありがとうを送りました</p>
+            <p>
+              <strong><%= notification.actor.nickname %></strong>
+              <%= t("notifications.index.thanks_notification", name: notification.actor.nickname).sub("#{notification.actor.nickname}", "") %>
+            </p>
           <% elsif notification.action_type == "mood" %>
-            <p><strong><%= notification.actor.nickname %></strong> さんがごきげんを記録しました</p>
+            <p>
+              <strong><%= notification.actor.nickname %></strong>
+              <%= t("notifications.index.mood_notification", name: notification.actor.nickname).sub("#{notification.actor.nickname}", "") %>
+            </p>
           <% end %>
           <p class="text-sm text-gray-400"><%= l notification.created_at %></p>
         </div>

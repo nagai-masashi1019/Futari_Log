@@ -9,11 +9,11 @@
 
     <!-- PCナビ（右端） -->
     <nav class="hidden md:flex items-center gap-6">
-      <%= link_to "ログイン",
+      <%= link_to t("shared.header_guest.login"),
             new_user_session_path,
             class: "text-sm text-gray-700 hover:text-gray-900" %>
 
-      <%= link_to "新規登録",
+      <%= link_to t("shared.header_guest.signup"),
             new_user_registration_path,
             class: "px-4 py-2 rounded-md bg-blue-500 text-white text-sm hover:bg-blue-600" %>
     </nav>
@@ -30,11 +30,11 @@
   <!-- モバイルナビ -->
   <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
     <div class="flex flex-col items-center py-4 gap-4">
-      <%= link_to "ログイン",
+      <%= link_to t("shared.header_guest.login"),
             new_user_session_path,
             class: "text-gray-700" %>
 
-      <%= link_to "新規登録",
+      <%= link_to t("shared.header_guest.signup"),
             new_user_registration_path,
             class: "px-6 py-2 rounded-md bg-blue-500 text-white" %>
     </div>

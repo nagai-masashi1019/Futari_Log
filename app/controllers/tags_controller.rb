@@ -10,9 +10,10 @@ class TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
     @tag.created_by_user = current_user
+    @tags = Tag.for_user(current_user)
 
     if @tag.save
-      redirect_to new_thank_path, notice: "タグを追加しました"
+      redirect_to new_thank_path, notice: t("tags.create.success")
     else
       render :new, status: :unprocessable_entity
     end

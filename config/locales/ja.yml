@@ -3,6 +3,42 @@ ja:
     formats:
       invitation_expires: "%Y年%m月%d日(%a) %H時%M分"
 
+  shared:
+    header_guest:
+      login: "ログイン"
+      signup: "新規登録"
+    header_user:
+      logout: "ログアウト"
+      notifications: "通知"
+    sidebar_user:
+      default_nickname: "自分のニックネーム"
+      moods: "ごきげん記録"
+      thanks: "ありがとう記録"
+      settings: "設定"
+
+  home:
+    index:
+      menu: "メニュー"
+      greeting: "こんにちは、%{name}さん"
+      today_mood: "今日のごきげんは？"
+      recent_status: "最近の%{name}さんの様子"
+      weekly_trend: "今週のごきげん傾向"
+      weekly_thanks: "今週もらったありがとう"
+      thanks_unit: "件"
+      catch_copy: "長く一緒にいるふたりのための優しい感情ログ"
+      start: "はじめる"
+      features_title: "▼ サービスの特徴"
+      features:
+        mood: "・ワンタップでごきげん記録"
+        thanks: "・ありがとうを残せる"
+        design: "・相手を責めない設計"
+      links:
+        about: "Futari Logとは"
+        how_to_use: "使い方"
+        faq: "よくある質問"
+        terms: "利用規約"
+        privacy: "プライバシーポリシー"
+
   couples:
     already_coupled: "すでにカップル設定が完了しています"
 
@@ -34,9 +70,18 @@ ja:
       expires_at: "有効期限: %{time}"
 
   moods:
+    index:
+      menu: "メニュー"
+      weekly_trend_title: "%{name}さんの今週のごきげん傾向"
+      partner_recent: "最近の%{name}さんの様子"
+      weekly_trend: "今週のごきげん傾向"
     create:
       success: "ごきげんを記録しました"
       already_recorded: "本日はすでに記録済みです"
+    helper:
+      today: "今日"
+      yesterday: "昨日"
+      days_ago: "%{count}日前"
 
   activerecord:
     errors:
@@ -48,13 +93,182 @@ ja:
               not_same_couple: "パートナー以外には送れません"
 
   thanks:
+    index:
+      menu: "メニュー"
+      title: "%{name}さんのありがとう記録"
+      description: "相手に感謝を届けましょう"
+      received_title: "もらったありがとう"
+      empty: "まだありがとうがありません"
+      received_suffix: "ありがとう"
+      summary_title: "ありがとう集計 （※グラフが表示されていない場合は一度画面を更新してください）"
+      weekly_sent_title: "今週贈ったありがとう"
+      chart_label: "もらったありがとう"
     dashboard:
       title: "ありがとう記録"
       send: "🌸 ありがとうを贈る 🌸"
     new:
       title: "ありがとうを贈る"
+      menu: "メニュー"
+      question: "どんなことへのありがとう？"
+      add_tag: "＋ タグを追加する"
       description: "ワンタップで気持ちを届けましょう"
       submit: "🌸 ありがとうを贈る 🌸"
     create:
       success: "ありがとうを贈りました 💐"
       failure: "タグを選択してください"
+
+  tags:
+    create:
+      success: "タグを追加しました"
+    new:
+      menu: "メニュー"
+      title: "タグを追加"
+      placeholder: "例：仕事を手伝ってくれた💻"
+      submit: "追加する"
+      display_settings: "タグの表示設定"
+      show: "表示する"
+      hide: "非表示"
+    defaults:
+      cleaning: "掃除🧹"
+      laundry: "洗濯🧺"
+      cooking: "ご飯🍚"
+      dishes: "洗い物🍴"
+      trash: "ゴミ出し🗑️"
+      consideration: "気遣い😌"
+      helped: "助けてくれた🙏"
+      fun_time: "一緒にいて楽しかった🥰"
+      surprise: "サプライズ🎁"
+      other: "その他🫡"
+
+  settings:
+    show:
+      menu: "メニュー"
+      title: "設定"
+      account: "アカウント設定"
+      couple: "カップル設定"
+      tag_management: "ありがとうタグ管理"
+      notification: "通知設定"
+      support: "その他/ヘルプ/サポート"
+
+  couple_settings:
+    update:
+      success: "パートナーの表示名を更新しました"
+      failure: "更新に失敗しました"
+    destroy:
+      not_found: "カップルが存在しません"
+      success: "カップル設定を解除しました"
+    show:
+      partner_nickname_label: "パートナーの表示名（自分だけに表示されます）"
+      update: "更新する"
+      breakup_title: "カップル解除"
+      breakup_description_html: "カップルを解除すると、これまでの関係データはすべて削除される可能性があります。<br>この操作は取り消せません。"
+      breakup_button: "カップル解除"
+      breakup_confirm: "本当にカップル設定を解除しますか？\n一度解除すると元に戻せません。"
+      not_set: "まだカップルが設定されていません"
+
+  notification_settings:
+    update:
+      success: "更新しました"
+    edit:
+      menu: "メニュー"
+      title: "通知設定"
+      notify_on_mood: "ごきげん記録の通知を受け取る"
+      notify_on_thanks: "ありがとう投稿の通知を受け取る"
+      save: "保存"
+
+  notifications:
+    index:
+      menu: "メニュー"
+      title: "通知"
+      mark_all_as_read: "すべて既読にする"
+      thanks_notification: "%{name}さんがありがとうを送りました"
+      mood_notification: "%{name}さんがごきげんを記録しました"
+
+  accounts:
+    update:
+      success: "アカウント情報を更新しました"
+      failure: "更新に失敗しました"
+    show:
+      nickname_label: "ニックネーム"
+      nickname_placeholder: "ニックネームを入力"
+      email_label: "メールアドレス"
+      email_change: "変更"
+      submit: "変更を保存"
+      password_change: "パスワードを変更する"
+      logout: "ログアウト"
+
+  static_pages:
+    about:
+      title: "Futari Logとは"
+      description: "Futari Logは、長く一緒にいるカップルが日々の「ごきげん」や「ありがとう」をワンタップで記録し、関係性を穏やかに保つためのWebアプリです。"
+      reason_title: "このサービスが生まれた理由"
+      reason_body: "長く一緒にいる中で生まれる「小さな感情のズレ」。それを溜め込まず、責める形にもならない方法で可視化できたら、もっと優しい関係を続けられるのではないか。"
+      features_title: "特徴"
+      features:
+        easy_record: "文章を書かなくても記録できる感情設計"
+        gentle_visualize: "相手を刺激しない可視化"
+        multi_device: "スマホ・PCどちらからでも利用可能"
+    how_to_use:
+      title: "使い方"
+      step1_title: "① アカウント登録"
+      step1_body: "まずは新規登録を行います。"
+      step2_title: "② カップル登録"
+      step2_body: "招待コードを発行、または入力してカップル登録を行います。"
+      step3_title: "③ ごきげんを記録"
+      step3_body: "毎日の気分をワンタップで記録します。"
+      step4_title: "④ ありがとうを残す"
+      step4_body: "感謝を簡単に残せます。"
+      step5_title: "⑤ 振り返り"
+      step5_body: "週や月単位で傾向を確認できます。"
+    faq:
+      title: "よくある質問"
+      q1: "Q. PCでも利用できますか？"
+      a1: "はい。スマホ・PCどちらでも利用可能です。"
+      q2: "Q. 利用料金はかかりますか？"
+      a2: "現在は無料でご利用いただけます。"
+      q3: "Q. カップル解除後データは残りますか？"
+      a3: "解除時に関連データは削除されます。"
+      q4: "Q. ごきげんの編集はできますか？"
+      a4: "現在は当日のみ変更可能です。"
+    privacy:
+      title: "プライバシーポリシー"
+      intro: "本プライバシーポリシーは、Futari Log における個人情報の取り扱いについて定めるものです。"
+
+      section1_title: "1. 収集する情報"
+      section1_body: "本サービスでは、以下の情報を取得します。"
+      collected:
+        nickname: "ニックネーム"
+        email: "メールアドレス"
+        logs: "ごきげん・ありがとうの記録"
+
+      section2_title: "2. 利用目的"
+      section2_body: "取得した情報は、本サービスの提供および改善のために使用します。"
+
+      section3_title: "3. 第三者提供"
+      section3_body: "法令に基づく場合を除き、第三者に提供することはありません。"
+
+      section4_title: "4. データ削除"
+      section4_body: "利用者がカップル解除または退会した場合、関連データは削除されます。"
+
+      established_on: "制定日：2026年2月"
+    terms:
+      title: "利用規約"
+      intro: "本利用規約（以下「本規約」）は、Futari Log（以下「本サービス」）の利用条件を定めるものです。"
+
+      article1_title: "第1条（利用登録）"
+      article1_body: "本サービスの利用を希望する方は、本規約に同意の上、所定の方法により利用登録を行うものとします。"
+
+      article2_title: "第2条（禁止事項）"
+      article2_body: "利用者は、以下の行為をしてはなりません。"
+      prohibited:
+        illegal: "法令または公序良俗に違反する行為"
+        harm_users: "他の利用者に不利益を与える行為"
+        interfere: "本サービスの運営を妨害する行為"
+
+      article3_title: "第3条（サービスの停止）"
+      article3_body: "当方は、必要と判断した場合、事前の通知なく本サービスの全部または一部を停止することができます。"
+
+      article4_title: "第4条（免責事項）"
+      article4_body: "本サービスの利用により生じた損害について、当方は一切の責任を負いません。"
+
+      established_on: "制定日：2026年2月"

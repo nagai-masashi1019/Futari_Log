@@ -1,29 +1,27 @@
 <% if user_signed_in? %>
   <div class="bg-[#e9f7f7] min-h-screen flex overflow-hidden">
   <%= render "shared/sidebar_user" %>
-    <!-- ===== メイン＋スマホ用 ===== -->
     <div id="content-wrapper"
          class="flex-1 transition-transform duration-300">
 
       <main class="px-4 md:px-10 py-8 max-w-full overflow-x-hidden">
 
-        <!-- ☰（スマホのみ） -->
         <div class="md:hidden mb-6">
           <button id="sidebar-toggle"
             class="flex items-center gap-2
                    border border-gray-300 rounded-lg
                    px-3 py-2 bg-white shadow-sm text-gray-700">
             <span id="sidebar-icon" class="text-xl">☰</span>
-            <span class="text-sm">メニュー</span>
+            <span class="text-sm"><%= t("home.index.menu") %></span>
           </button>
         </div>
 
         <h1 class="text-xl md:text-2xl font-bold mb-6">
-          こんにちは、<%= current_user.nickname.presence || "◯◯" %>さん
+          <%= t("home.index.greeting", name: current_user.nickname.presence || "◯◯") %>
         </h1>
 
         <section class="bg-white rounded-3xl shadow-sm p-10 md:p-14 mb-14">
-          <h2 class="text-xl font-bold mb-8">今日のごきげんは？</h2>
+          <h2 class="text-xl font-bold mb-8"><%= t("home.index.today_mood") %></h2>
 
           <div class="flex justify-between items-center">
             <% {
@@ -39,19 +37,16 @@
               %>
 
               <% if @today_mood&.level == level.to_s %>
-                <!-- 選択済み -->
                 <span class="<%= base_class %> scale-110">
                   <%= emoji %>
                 </span>
 
               <% elsif @today_mood.present? %>
-                <!-- 他は非活性 -->
                 <span class="<%= base_class %> opacity-30">
                   <%= emoji %>
                 </span>
 
               <% else %>
-                <!-- 未選択 -->
                 <%= button_to moods_path(level: level),
                       method: :post,
                       form_class: "inline-block",
@@ -65,12 +60,12 @@
         </section>
 
         <p class="text-lg font-bold mb-6">
-          最近の<%= current_user.nickname %>さんの様子
+          <%= t("home.index.recent_status", name: current_user.nickname) %>
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div class="bg-white rounded-3xl shadow-sm p-10">
-            <h3 class="font-bold mb-6 text-lg">今週のごきげん傾向</h3>
+            <h3 class="font-bold mb-6 text-lg"><%= t("home.index.weekly_trend") %></h3>
             <div class="flex items-center gap-8">
               <span class="text-[64px] md:text-[80px]"><%= mood_emoji(@weekly_level) %></span>
               <span class="text-[64px] md:text-[80px] font-bold"><%= @weekly_average %>%</span>
@@ -78,10 +73,12 @@
           </div>
 
           <div class="bg-white rounded-3xl shadow-sm p-10">
-            <h3 class="font-bold mb-6 text-lg">今週もらったありがとう</h3>
+            <h3 class="font-bold mb-6 text-lg"><%= t("home.index.weekly_thanks") %></h3>
             <div class="flex items-center gap-8">
               <span class="text-[56px] md:text-[72px]">💌</span>
-              <span class="text-[56px] md:text-[72px] font-bold"><%= @weekly_received_thanks_count %>件</span>
+              <span class="text-[56px] md:text-[72px] font-bold">
+                <%= @weekly_received_thanks_count %><%= t("home.index.thanks_unit") %>
+              </span>
             </div>
           </div>
         </div>
@@ -92,44 +89,40 @@
 <% else %>
   <section class="bg-[#e9f7f7] min-h-[calc(100vh-80px)] flex flex-col items-center justify-center text-center px-4">
 
-    <!-- ロゴ（超大） -->
     <div class="mb-6">
       <%= image_tag "1212ddaa-3d48-40ff-9f34-95a07bfde494.png", class: "w-[85%] md:w-[75%] lg:w-[70%] mx-auto" %>
     </div>
 
-    <!-- キャッチコピー -->
     <p class="text-gray-600 mb-10">
-      長く一緒にいるふたりのための優しい感情ログ
+      <%= t("home.index.catch_copy") %>
     </p>
 
-    <!-- はじめる -->
     <div class="mb-10">
-      <%= link_to "はじめる",
+      <%= link_to t("home.index.start"),
             new_user_registration_path,
             class: "inline-block px-10 py-3 bg-white border border-gray-700 rounded-md text-gray-800 hover:bg-gray-100" %>
     </div>
 
-    <!-- サービスの特徴 -->
     <div class="bg-white rounded-lg shadow-sm p-6 w-full max-w-md">
       <h2 class="font-semibold mb-3">
-        ▼ サービスの特徴
+        <%= t("home.index.features_title") %>
       </h2>
       <ul class="text-sm text-gray-600 space-y-2">
-        <li>・ワンタップでごきげん記録</li>
-        <li>・ありがとうを残せる</li>
-        <li>・相手を責めない設計</li>
+        <li><%= t("home.index.features.mood") %></li>
+        <li><%= t("home.index.features.thanks") %></li>
+        <li><%= t("home.index.features.design") %></li>
       </ul>
     </div>
 
     <div class="mt-12 text-sm text-gray-500 space-x-4">
-      <%= link_to "Futari Logとは", about_path %>
-      <%= link_to "使い方", how_to_use_path %>
-      <%= link_to "よくある質問", faq_path %>
+      <%= link_to t("home.index.links.about"), about_path %>
+      <%= link_to t("home.index.links.how_to_use"), how_to_use_path %>
+      <%= link_to t("home.index.links.faq"), faq_path %>
     </div>
 
     <footer class="mt-12 text-xs text-gray-400">
-      <%= link_to "利用規約", terms_path %> |
-      <%= link_to "プライバシーポリシー", privacy_path %>
+      <%= link_to t("home.index.links.terms"), terms_path %> |
+      <%= link_to t("home.index.links.privacy"), privacy_path %>
       <div class="mt-2">© 2026 Futari Log</div>
     </footer>
     <br>

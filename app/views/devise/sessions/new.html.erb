@@ -3,15 +3,17 @@
 
     <!-- タイトル -->
     <h1 class="text-2xl md:text-3xl font-bold text-center mb-10">
-      ログイン
+      <%= t("devise.sessions.custom.title") %>
     </h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <!-- メール -->
       <div class="mb-6 text-left">
-        <%= f.label :email, "メールアドレス",
+        <%= f.label :email,
+              t("devise.sessions.custom.email"),
               class: "block text-sm font-medium text-gray-700 mb-1" %>
+
         <%= f.email_field :email,
               autofocus: true,
               class: "w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-300" %>
@@ -19,7 +21,8 @@
 
       <!-- パスワード -->
       <div class="mb-10 text-left relative">
-        <%= f.label :password, "パスワード",
+        <%= f.label :password,
+              t("devise.sessions.custom.password"),
               class: "block text-sm font-medium text-gray-700 mb-1" %>
 
         <%= f.password_field :password,
@@ -35,7 +38,7 @@
 
       <!-- ログインボタン -->
       <div class="flex justify-center mb-10">
-        <%= f.submit "ログイン",
+        <%= f.submit t("devise.sessions.custom.submit"),
               class: "px-10 py-2 rounded-md bg-gray-200 border border-gray-500 text-gray-800 hover:bg-gray-300 transition" %>
       </div>
 
@@ -43,11 +46,11 @@
 
     <!-- 下部リンク -->
     <div class="flex justify-between text-sm text-gray-700 px-2">
-      <%= link_to "パスワードをお忘れの方",
+      <%= link_to t("devise.sessions.custom.forgot_password"),
             new_user_password_path,
             class: "underline hover:text-gray-900" %>
 
-      <%= link_to "新規登録の方はこちら",
+      <%= link_to t("devise.sessions.custom.sign_up"),
             new_user_registration_path,
             class: "underline hover:text-gray-900" %>
     </div>

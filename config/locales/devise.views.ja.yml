@@ -46,37 +46,58 @@ ja:
       unauthenticated: ログインもしくはアカウント登録してください。
       unconfirmed: メールアドレスの本人確認が必要です。
     mailer:
-      confirmation_instructions:
-        action: メールアドレスの確認
-        greeting: "%{recipient}様"
-        instruction: '以下のリンクをクリックし、メールアドレスの確認手続を完了させてください。'
-        subject: メールアドレス確認メール
-      email_changed:
-        greeting: "こんにちは、%{recipient}様。"
-        message: "メールアドレスの（%{email}）変更が完了したため、メールを送信しています。"
-        message_unconfirmed: "メールアドレスが（%{email}）変更されたため、メールを送信しています。"
-        subject: メール変更完了
-      password_change:
-        greeting: "%{recipient}様"
-        message: パスワードが再設定されました。
-        subject: パスワードの変更について
-      reset_password_instructions:
-        action: パスワード変更
-        greeting: "%{recipient}様"
-        instruction: パスワード再設定の依頼を受けたため、メールを送信しています。下のリンクからパスワードの再設定ができます。
-        instruction_2: パスワード再設定の依頼をしていない場合、このメールを無視してください。
-        instruction_3: パスワードの再設定は、上のリンクから新しいパスワードを登録するまで完了しません。
-        subject: パスワードの再設定について
-      unlock_instructions:
-        action: アカウントのロック解除
-        greeting: "%{recipient}様"
-        instruction: 'アカウントのロックを解除するには下のリンクをクリックしてください。'
-        message: ログイン失敗が繰り返されたため、アカウントはロックされています。
-        subject: アカウントのロック解除について
+      confirmation_instructions_view:
+        greeting: "%{email} 様"
+        thanks_message: "Futari Log へのご登録ありがとうございます。"
+        instruction_message: "下記のリンクをクリックして、メールアドレスの確認を完了してください。"
+        confirm_button: "メールアドレスを確認する"
+        closing_message: "今後とも Futari Log をよろしくお願いいたします。"
+      email_changed_view:
+        greeting: "%{email} 様"
+        unconfirmed_message: "Futari Log に登録されているメールアドレスの変更申請を受け付けました。"
+        new_email_label: "新しいメールアドレス："
+        confirmed_message: "Futari Log に登録されているメールアドレスが変更されました。"
+        notice_message: "もしこの変更に心当たりがない場合は、サポートまでご連絡ください。"
+      password_change_view:
+        greeting: "%{email} 様"
+        message_line_1: "Futari Log にご登録のパスワードが変更されました。"
+        message_line_2_html: "もしこの変更に心当たりがない場合は、<br>早急にパスワードの再設定を行ってください。"
+        closing_message: "今後とも Futari Log をよろしくお願いいたします。"
+      reset_password_instructions_view:
+        greeting: "%{email} 様"
+        thanks_message: "Futari Log をご利用いただきありがとうございます。"
+        instruction_message: "以下のリンクから、パスワードの再設定を行ってください。"
+        reset_button: "パスワードを再設定する"
+        notice_message_html: "※ このリンクの有効期限は <strong>6時間</strong> です。<br>※ このメールに心当たりがない場合は、破棄してください。"
+        footer_html: "Futari Log<br>大切な「気持ち」を、そっと記録するアプリ"
+      reset_password_instructions_text_view:
+        greeting: "%{email} 様"
+        thanks_message: "Futari Log をご利用いただきありがとうございます。"
+        instruction_message: "以下のURLから、パスワードの再設定を行ってください。"
+        notice_message_1: "※ このリンクの有効期限は6時間です。"
+        notice_message_2: "※ このメールに心当たりがない場合は破棄してください。"
+        footer_line_1: "Futari Log"
+        footer_line_2: "大切な「気持ち」を、そっと記録するアプリ"
+      unlock_instructions_view:
+        greeting: "%{email} 様"
+        message_html: "複数回のログイン失敗により、<br>あなたのアカウントは一時的にロックされました。"
+        instruction_message: "下記のリンクからロック解除を行ってください。"
+        unlock_button: "アカウントのロックを解除する"
     omniauth_callbacks:
       failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
       success: "%{kind} アカウントによる認証に成功しました。"
     passwords:
+      custom:
+        title: "パスワード再設定"
+        description_html: "ご登録のメールアドレスに<br class='md:hidden'>パスワード再設定用のリンクを送信します"
+        email: "メールアドレス"
+        submit: "再設定メールを送信"
+        back_to_login: "ログイン画面に戻る"
+      custom_edit:
+        title: "新しいパスワード設定"
+        new_password: "新しいパスワード"
+        current_password: "現在のパスワード"
+        back_to_login: "ログイン画面へ"
       edit:
         change_my_password: パスワードを変更する
         change_your_password: パスワードを変更
@@ -91,6 +112,30 @@ ja:
       updated: パスワードが正しく変更されました。
       updated_not_active: パスワードが正しく変更されました。
     registrations:
+      password_edit:
+        title: "パスワード変更"
+        description: "新しいパスワードを設定してください"
+        new_password_label: "新しいパスワード"
+        password_confirmation_label: "新しいパスワード（確認）"
+        current_password_label: "現在のパスワード"
+        minimum_length: "%{count}文字以上"
+        submit: "パスワードを変更する"
+        back_to_account: "アカウント設定に戻る"
+      edit_email:
+        title: "メールアドレス変更"
+        description: "新しいメールアドレスを入力してください"
+        new_email_label: "新しいメールアドレス"
+        current_password_label: "現在のパスワード"
+        back_to_account: "アカウント設定に戻る"
+      custom:
+        title: "新規登録"
+        nickname: "表示名（ニックネーム）"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+        required: "必須"
+        password_placeholder: "6文字以上で入力"
+        submit: "登録"
       destroyed: アカウントを削除しました。またのご利用をお待ちしております。
       edit:
         are_you_sure: 本当によろしいですか？
@@ -111,6 +156,13 @@ ja:
       updated: アカウント情報を変更しました。
       updated_but_not_signed_in: あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、再度ログインしてください。
     sessions:
+      custom:
+        title: "ログイン"
+        email: "メールアドレス"
+        password: "パスワード"
+        submit: "ログイン"
+        forgot_password: "パスワードをお忘れの方"
+        sign_up: "新規登録の方はこちら"
       already_signed_out: 既にログアウト済みです。
       new:
         sign_in: ログイン

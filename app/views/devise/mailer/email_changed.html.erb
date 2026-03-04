@@ -1,20 +1,20 @@
-<p><%= @email %> 様</p>
+<p><%= t("devise.mailer.email_changed_view.greeting", email: @email) %></p>
 
 <% if @resource.try(:unconfirmed_email?) %>
   <p>
-    Futari Log に登録されているメールアドレスの変更申請を受け付けました。
+    <%= t("devise.mailer.email_changed_view.unconfirmed_message") %>
   </p>
 
   <p>
-    新しいメールアドレス：<br>
+    <%= t("devise.mailer.email_changed_view.new_email_label") %><br>
     <strong><%= @resource.unconfirmed_email %></strong>
   </p>
 <% else %>
   <p>
-    Futari Log に登録されているメールアドレスが変更されました。
+    <%= t("devise.mailer.email_changed_view.confirmed_message") %>
   </p>
 <% end %>
 
 <p>
-  もしこの変更に心当たりがない場合は、サポートまでご連絡ください。
+  <%= t("devise.mailer.email_changed_view.notice_message") %>
 </p>

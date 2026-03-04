@@ -2,43 +2,41 @@
   <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow px-6 py-10">
 
     <h1 class="text-2xl font-bold mb-6 text-center">
-      プライバシーポリシー
+      <%= t("static_pages.privacy.title") %>
     </h1>
 
     <div class="text-sm text-gray-700 space-y-6 leading-relaxed">
       <p>
-        本プライバシーポリシーは、Futari Log における
-        個人情報の取り扱いについて定めるものです。
+        <%= t("static_pages.privacy.intro") %>
       </p>
 
-      <h2 class="font-bold">1. 収集する情報</h2>
+      <h2 class="font-bold"><%= t("static_pages.privacy.section1_title") %></h2>
       <p>
-        本サービスでは、以下の情報を取得します。
+        <%= t("static_pages.privacy.section1_body") %>
       </p>
       <ul class="list-disc ml-6">
-        <li>ニックネーム</li>
-        <li>メールアドレス</li>
-        <li>ごきげん・ありがとうの記録</li>
+        <li><%= t("static_pages.privacy.collected.nickname") %></li>
+        <li><%= t("static_pages.privacy.collected.email") %></li>
+        <li><%= t("static_pages.privacy.collected.logs") %></li>
       </ul>
 
-      <h2 class="font-bold">2. 利用目的</h2>
+      <h2 class="font-bold"><%= t("static_pages.privacy.section2_title") %></h2>
       <p>
-        取得した情報は、本サービスの提供および改善のために使用します。
+        <%= t("static_pages.privacy.section2_body") %>
       </p>
 
-      <h2 class="font-bold">3. 第三者提供</h2>
+      <h2 class="font-bold"><%= t("static_pages.privacy.section3_title") %></h2>
       <p>
-        法令に基づく場合を除き、第三者に提供することはありません。
+        <%= t("static_pages.privacy.section3_body") %>
       </p>
 
-      <h2 class="font-bold">4. データ削除</h2>
+      <h2 class="font-bold"><%= t("static_pages.privacy.section4_title") %></h2>
       <p>
-        利用者がカップル解除または退会した場合、
-        関連データは削除されます。
+        <%= t("static_pages.privacy.section4_body") %>
       </p>
 
       <p class="text-right text-xs text-gray-400">
-        制定日：2026年2月
+        <%= t("static_pages.privacy.established_on") %>
       </p>
     </div>
 

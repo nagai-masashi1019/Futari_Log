@@ -10,29 +10,29 @@
           <button id="sidebar-toggle"
             class="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 bg-white shadow-sm text-gray-700">
             <span class="text-xl">☰</span>
-            <span class="text-sm">メニュー</span>
+            <span class="text-sm"><%= t("settings.show.menu") %></span>
           </button>
         </div>
 
         <h1 class="text-2xl font-bold text-center mb-10">
-          その他 / ヘルプ / サポート
+          <%= t("settings.show.support") %>
         </h1>
 
         <div class="max-w-md mx-auto space-y-6">
 
-          <%= link_to "Futari Logとは", about_path,
+          <%= link_to t("home.index.links.about"), about_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
-          <%= link_to "使い方", how_to_use_path,
+          <%= link_to t("home.index.links.how_to_use"), how_to_use_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
-          <%= link_to "よくある質問", faq_path,
+          <%= link_to t("home.index.links.faq"), faq_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
-          <%= link_to "利用規約", terms_path,
+          <%= link_to t("home.index.links.terms"), terms_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
-          <%= link_to "プライバシーポリシー", privacy_path,
+          <%= link_to t("home.index.links.privacy"), privacy_path,
                 class: "block text-center border rounded-full py-4 bg-white shadow hover:bg-gray-50" %>
 
         </div>

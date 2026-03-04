@@ -2,29 +2,29 @@
   <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-sm p-8 md:p-12">
 
     <h1 class="text-2xl md:text-3xl font-bold mb-8 text-center">
-      Futari Logとは
+      <%= t("static_pages.about.title") %>
     </h1>
 
     <div class="space-y-6 text-gray-700 leading-relaxed text-sm md:text-base">
 
       <p>
-        Futari Logは、長く一緒にいるカップルが
-        日々の「ごきげん」や「ありがとう」をワンタップで記録し、
-        関係性を穏やかに保つためのWebアプリです。
+        <%= t("static_pages.about.description") %>
       </p>
 
-      <h2 class="font-bold text-lg mt-6">このサービスが生まれた理由</h2>
+      <h2 class="font-bold text-lg mt-6">
+        <%= t("static_pages.about.reason_title") %>
+      </h2>
       <p>
-        長く一緒にいる中で生まれる「小さな感情のズレ」。
-        それを溜め込まず、責める形にもならない方法で可視化できたら、
-        もっと優しい関係を続けられるのではないか。
+        <%= t("static_pages.about.reason_body") %>
       </p>
 
-      <h2 class="font-bold text-lg mt-6">特徴</h2>
+      <h2 class="font-bold text-lg mt-6">
+        <%= t("static_pages.about.features_title") %>
+      </h2>
       <ul class="list-disc ml-6 space-y-2">
-        <li>文章を書かなくても記録できる感情設計</li>
-        <li>相手を刺激しない可視化</li>
-        <li>スマホ・PCどちらからでも利用可能</li>
+        <li><%= t("static_pages.about.features.easy_record") %></li>
+        <li><%= t("static_pages.about.features.gentle_visualize") %></li>
+        <li><%= t("static_pages.about.features.multi_device") %></li>
       </ul>
 
     </div>

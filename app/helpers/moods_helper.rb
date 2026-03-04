@@ -14,10 +14,10 @@ module MoodsHelper
 
     date = date.to_date
 
-    return "今日" if date == Date.current
-    return "昨日" if date == Date.current - 1
+    return I18n.t("moods.helper.today") if date == Date.current
+    return I18n.t("moods.helper.yesterday") if date == Date.current - 1
 
     days_ago = (Date.current - date).to_i
-    "#{days_ago}日前"
+    I18n.t("moods.helper.days_ago", count: days_ago)
   end
 end
