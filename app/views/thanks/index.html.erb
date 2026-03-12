@@ -88,22 +88,22 @@
 
         <!-- Chart.js CDN -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
         <script>
-          const drawWeeklyThanksChart = () => {
-            const ctx = document.getElementById('weeklyThanksChart');
+          window.weeklyChart = null;
+
+          function drawWeeklyThanksChart() {
+            const ctx = document.getElementById("weeklyThanksChart");
             if (!ctx) return;
 
-            const labels = <%= raw(
-              @weekly_received_thanks.map { |w| w[:label] }.to_json
-            ) %>;
+            const labels = <%= raw(@weekly_received_thanks.map { |w| w[:label] }.to_json) %>;
+            const data = <%= raw(@weekly_received_thanks.map { |w| w[:count] }.to_json) %>;
 
-            const data = <%= raw(
-              @weekly_received_thanks.map { |w| w[:count] }.to_json
-            ) %>;
+            if (window.weeklyChart) {
+              window.weeklyChart.destroy();
+            }
 
-            new Chart(ctx, {
-              type: 'bar',
+            window.weeklyChart = new Chart(ctx, {
+              type: "bar",
               data: {
                 labels: labels,
                 datasets: [{
@@ -117,16 +117,13 @@
                 scales: {
                   y: {
                     beginAtZero: true,
-                    ticks: {
-                      stepSize: 5
-                    }
+                    ticks: { stepSize: 5 }
                   }
                 }
               }
             });
-          };
+          }
 
-          document.addEventListener("DOMContentLoaded", drawWeeklyThanksChart);
           document.addEventListener("turbo:load", drawWeeklyThanksChart);
         </script>
 
