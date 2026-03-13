@@ -62,7 +62,7 @@ class ThanksController < ApplicationController
     if @thanks.save
       redirect_to thanks_path, notice: t("thanks.create.success")
     else
-      @tags = Tag.all
+      @tags = Tag.visible_for(current_user)
       flash.now[:alert] = t("thanks.create.failure")
       render :new, status: :unprocessable_entity
     end
