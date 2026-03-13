@@ -8,13 +8,13 @@ class Tag < ApplicationRecord
 
   # ありがとう作成画面用（非表示タグ除外）
   scope :visible_for, ->(user) {
-    where(created_by_user_id: [nil, user.id])
+    where(created_by_user_id: [ nil, user.id ])
       .where.not(id: user.user_hidden_tags.select(:tag_id))
   }
 
   # タグ管理画面用（表示・非表示含めて全部）
   scope :for_user, ->(user) {
-    where(created_by_user_id: [nil, user.id])
+    where(created_by_user_id: [ nil, user.id ])
   }
 
   def self.default_tags
