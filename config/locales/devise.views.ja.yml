@@ -127,6 +127,7 @@ ja:
         new_email_label: "新しいメールアドレス"
         current_password_label: "現在のパスワード"
         back_to_account: "アカウント設定に戻る"
+        submit: "メールアドレスを変更"
       custom:
         title: "新規登録"
         nickname: "表示名（ニックネーム）"

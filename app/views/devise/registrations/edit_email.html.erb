@@ -46,6 +46,12 @@
         </button>
       </div>
 
+      <!-- 変更ボタン追加 -->
+      <div class="flex justify-center">
+        <%= f.submit t("devise.registrations.edit_email.submit"),
+              class: "bg-cyan-400 hover:bg-cyan-500 text-white font-semibold
+                      px-6 py-2 rounded-lg shadow-sm transition" %>
+      </div>
     <% end %>
 
     <div class="flex justify-center mt-8 text-sm text-gray-700">

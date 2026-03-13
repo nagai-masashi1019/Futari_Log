@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   get "couple_settings/update"
   get "settings/show"
   get "tags/new"
-  get "tags/create"
-  get "moods/create"
   root "home#index"
   devise_for :users, controllers: {
     registrations: "users/registrations"
