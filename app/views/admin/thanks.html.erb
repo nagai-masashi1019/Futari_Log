@@ -1,0 +1,19 @@
+<h1>Thanks一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>Created</th>
+  </tr>
+
+  <% @thanks.each do |thank| %>
+    <tr>
+      <td><%= thank.id %></td>
+      <td><%= thank.sender.email %></td>
+      <td><%= thank.receiver.email %></td>
+      <td><%= thank.created_at %></td>
+    </tr>
+  <% end %>
+</table>
