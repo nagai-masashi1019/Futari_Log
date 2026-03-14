@@ -1,0 +1,19 @@
+<h1>Mood一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>User</th>
+    <th>Level</th>
+    <th>Recorded On</th>
+  </tr>
+
+  <% @moods.each do |mood| %>
+    <tr>
+      <td><%= mood.id %></td>
+      <td><%= mood.user.email %></td>
+      <td><%= mood.level %></td>
+      <td><%= mood.recorded_on %></td>
+    </tr>
+  <% end %>
+</table>

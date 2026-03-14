@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "admin/index"
   get "notification_settings/edit"
   get "notification_settings/update"
   get "notifications/index"
@@ -64,4 +65,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  get "admin", to: "admin#index"
+  get "admin/users", to: "admin#users"
+  get "admin/moods", to: "admin#moods"
+  get "admin/thanks", to: "admin#thanks"
+  delete "admin/users/:id", to: "admin#destroy_user"
 end

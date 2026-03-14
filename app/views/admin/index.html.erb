@@ -1,0 +1,13 @@
+<h1>管理画面</h1>
+
+<p>ユーザー数: <%= @users_count %></p>
+<p>Mood数: <%= @moods_count %></p>
+<p>Thanks数: <%= @thanks_count %></p>
+
+<hr>
+
+<ul>
+  <li><%= link_to "ユーザー一覧", "/admin/users" %></li>
+  <li><%= link_to "Mood一覧", "/admin/moods" %></li>
+  <li><%= link_to "Thanks一覧", "/admin/thanks" %></li>
+</ul>
